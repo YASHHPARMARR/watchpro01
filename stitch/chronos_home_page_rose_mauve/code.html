@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHRONOS | Premium Luxury Timepieces</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&amp;family=Josefin+Sans:wght@400;600;700&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8b4a5c",
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                        "neutral-muted": "#e5e1e2",
+                    },
+                    fontFamily: {
+                        "display": ["Crimson Pro", "serif"],
+                        "nav": ["Josefin Sans", "sans-serif"],
+                        "body": ["DM Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-nav {
+            background: rgba(247, 246, 247, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .marquee {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            gap: 2rem;
+        }
+        .marquee-content {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-around;
+            min-width: 100%;
+            gap: 2rem;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body text-slate-900 dark:text-slate-100">
+<!-- Sticky Navbar -->
+<header class="fixed top-0 w-full z-50 glass-nav border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<a class="flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">watch</span>
+<h1 class="font-nav text-2xl font-bold tracking-widest text-primary">CHRONOS</h1>
+</a>
+<nav class="hidden lg:flex items-center gap-8 font-nav text-sm font-semibold uppercase tracking-wider">
+<a class="hover:text-primary transition-colors" href="#">Collection</a>
+<a class="hover:text-primary transition-colors" href="#">Categories</a>
+<a class="hover:text-primary transition-colors" href="#">Flash Sale</a>
+<a class="hover:text-primary transition-colors" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-primary/5 rounded-full px-4 py-1.5 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-40 font-body" placeholder="Search timepiece..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 px-6 lg:px-20 overflow-hidden">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<h2 class="font-display text-6xl md:text-8xl leading-tight text-slate-900 dark:text-white mb-6">
+<span class="italic font-normal text-primary">Precious</span> <br/>
+                    Timeless Elegance
+                </h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-lg leading-relaxed">
+                    Experience the pinnacle of horology with our hand-crafted luxury timepieces. Engineering meets art in every tick.
+                </p>
+<div class="flex flex-wrap gap-4 font-nav">
+<button class="bg-primary text-white px-10 py-4 rounded font-bold uppercase tracking-widest hover:bg-primary/90 transition-all shadow-xl shadow-primary/20">
+                        Explore Collection
+                    </button>
+<button class="border-2 border-primary text-primary px-10 py-4 rounded font-bold uppercase tracking-widest hover:bg-primary/5 transition-all">
+                        View Lookbook
+                    </button>
+</div>
+</div>
+<div class="order-1 lg:order-2 flex justify-center relative">
+<div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl -z-10 transform scale-75"></div>
+<img alt="Detailed luxury mechanical watch" class="w-full max-w-[500px] object-contain drop-shadow-2xl" data-alt="Detailed luxury mechanical watch floating in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOOROVtiAALWrAy682hmKKzFwkPtq1xhLRbodGNwdtOCxhywM17EVpHOLVBsm1FktA8ZEE14xXKAKPzYA5wPcZ0RU_i01C7Rk-VcFaa3yt8zo2hfkC4T-hToHKu_JKCZqwJmrt1oWILEvwKnZ_Jp7IDdmO8-lOInoYRKZnqq10Y2pB3XhQYIliE5MPuNOJfEYh_sspV2zFyxhL82Pi28N9HY_GyiQuBmQRWsN5UaRqQ9fNgBuRaIzAiaB9awtnoAf7kWaMZufLuc4M"/>
+</div>
+</div>
+</section>
+<!-- Infinite Marquee -->
+<div class="bg-primary py-4 overflow-hidden border-y border-white/10">
+<div class="marquee font-nav text-white text-sm font-bold uppercase tracking-[0.3em]">
+<div class="marquee-content">
+<span>Luxury Collection</span>
+<span>•</span>
+<span>100% Authentic</span>
+<span>•</span>
+<span>Global Warranty</span>
+<span>•</span>
+<span>Free Insured Shipping</span>
+<span>•</span>
+<span>Luxury Collection</span>
+<span>•</span>
+<span>100% Authentic</span>
+<span>•</span>
+<span>Global Warranty</span>
+<span>•</span>
+<span>Free Insured Shipping</span>
+</div>
+<div aria-hidden="true" class="marquee-content">
+<span>Luxury Collection</span>
+<span>•</span>
+<span>100% Authentic</span>
+<span>•</span>
+<span>Global Warranty</span>
+<span>•</span>
+<span>Free Insured Shipping</span>
+<span>•</span>
+<span>Luxury Collection</span>
+<span>•</span>
+<span>100% Authentic</span>
+<span>•</span>
+<span>Global Warranty</span>
+<span>•</span>
+<span>Free Insured Shipping</span>
+</div>
+</div>
+</div>
+<!-- Categories -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<h3 class="font-display text-4xl mb-12 text-center">Curated Collections</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Category Card -->
+<div class="group relative h-[400px] overflow-hidden bg-background-dark flex flex-col justify-end p-8 border border-white/5">
+<div class="absolute inset-0 opacity-60 group-hover:scale-110 transition-transform duration-700 bg-cover bg-center" data-alt="Close up of a luxury gold watch face" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQdbI9FoR_1DztNpUDaTFBrr739SbxTz7VE6a8nZYMbPpH5I-iJMStzhursluoD1y6Snf72aFctEq-gcbiU5ovLqN9cYzafpNO-ECIzZSX9xkqw6C5imJ9fkOWP5ka1juNCgaECTjLpkhLkfNrXGXNq_KlBhUNs3p5_he_i-4VbCQpIqbCuskGtBkh8XUd1BWUwvpKePVrsPY1HGYnC-JTVTHMZFm0WkogrrTohRFAF6Z5wxgooaeDDe-iDIJcl5ugiBiUhjxWGgb0')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="relative z-10">
+<p class="font-nav text-xs uppercase tracking-widest text-primary mb-2">Heritage</p>
+<h4 class="font-display text-2xl text-white mb-4">Luxury</h4>
+<button class="text-white font-nav text-xs uppercase border-b border-primary pb-1">Explore</button>
+</div>
+</div>
+<!-- Category Card -->
+<div class="group relative h-[400px] overflow-hidden bg-background-dark flex flex-col justify-end p-8 border border-white/5">
+<div class="absolute inset-0 opacity-60 group-hover:scale-110 transition-transform duration-700 bg-cover bg-center" data-alt="A durable dive watch under water" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJwGEo4kpzyeOY-fSUh8D317a8-SKy5k6s96Q-RdM6c7vFXFR5oLofWj5ybiw7hPNV5Tl1QDI_F3IeC9hi1IADw1ASP6RcUVnsVPWzcmQz6Ej4F82QxARJEa5XJc-x1_4jweWMBptPY2yFYU9FSW-w6rCkTGYaDq9kgJPoO3y5Y-9vzbR-vMzllDV0FXGOpkAKlxdM4fV1YyYqabu66yVsBdaoaoSlstQuTSOKO07IzKFbJdWETm_JqABhLIH8NoxK55qH4sMMPMMB')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="relative z-10">
+<p class="font-nav text-xs uppercase tracking-widest text-primary mb-2">Performance</p>
+<h4 class="font-display text-2xl text-white mb-4">Sport</h4>
+<button class="text-white font-nav text-xs uppercase border-b border-primary pb-1">Explore</button>
+</div>
+</div>
+<!-- Category Card -->
+<div class="group relative h-[400px] overflow-hidden bg-background-dark flex flex-col justify-end p-8 border border-white/5">
+<div class="absolute inset-0 opacity-60 group-hover:scale-110 transition-transform duration-700 bg-cover bg-center" data-alt="Minimalist leather strap watch on a desk" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBF_H01m25X7wrtMS4QVaQKMnjFkxph_4deCSn56d-1AJm-xex2-iwiiwEPEiRIJ0IOKIahndZSB2pOQz-Yrrpt61Zx7futd4QzWYJwFpmGeLVOtQboDAX3uYWGLwaYZ9ILpuCpPIgJ5y2xh0ExECI8fDQ1cLzKzStU9f_xlgIVpHbwqkyosCR7QKlVoe6qOeEWxdRE8NNGybKUfhtBs5xlwClrJxnA5IbLc7Y7-YiVrtW1um9t9Si2f4UC4VzZLxEq6tdIZg3fxtGB')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="relative z-10">
+<p class="font-nav text-xs uppercase tracking-widest text-primary mb-2">Lifestyle</p>
+<h4 class="font-display text-2xl text-white mb-4">Casual</h4>
+<button class="text-white font-nav text-xs uppercase border-b border-primary pb-1">Explore</button>
+</div>
+</div>
+<!-- Category Card -->
+<div class="group relative h-[400px] overflow-hidden bg-background-dark flex flex-col justify-end p-8 border border-white/5">
+<div class="absolute inset-0 opacity-60 group-hover:scale-110 transition-transform duration-700 bg-cover bg-center" data-alt="Modern smartwatch display on a wrist" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAeymXWLHSXMwa0pP17J0J6DBAwQOJqTTIaVjbfmvvdF8HwXVfQCSPv60OMpxOu1isolcgpIvTu1jMgUSHdnKRtqTBddSl3f3YqQquSQdYPW0drngJnpPlyREpMEnbR1oc0vWtycY881I6x4QsHoLmsF0JQBI5xK50cHD9E94taBUsFCVcN-iTgfMYaHalNQJFOpYreZEo2gg2zjjdKkqfHUGAHJhQmg62bbo0BKv7C0Zsiot66mTzpEytcm456qm--IjUtQcpW3LdX')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="relative z-10">
+<p class="font-nav text-xs uppercase tracking-widest text-primary mb-2">Modern</p>
+<h4 class="font-display text-2xl text-white mb-4">Smart</h4>
+<button class="text-white font-nav text-xs uppercase border-b border-primary pb-1">Explore</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-24 bg-white/50 dark:bg-black/20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h3 class="font-display text-4xl mb-4">Featured Timepieces</h3>
+<div class="w-20 h-1 bg-primary"></div>
+</div>
+<a class="font-nav text-sm font-bold uppercase tracking-widest text-primary hover:opacity-80" href="#">View All Models</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+<!-- Product Card 1 -->
+<div class="group">
+<div class="relative aspect-[4/5] bg-background-light mb-6 flex items-center justify-center p-8 overflow-hidden">
+<img alt="Chronos Grand Master" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" data-alt="Luxury rose gold watch with complex internal gears visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgaxXY8-cXFdxbA3EaasJHk4a_y6ZdH8rfmGedM68tlUnIiTZFC6o3k_08oLmnK4gFcpJLj2j59H0JMh1gIeuiwmAe5nqJT_x7oEvx7aW9RyK21g1mSOcwNXkfCyQYVentU8nLqqe3ZjM0eo97_LVZTMXFKleHbML5izIi72BgIGDKYuFXFNmS7nsNf-DuW_kcnBtQ-5LRX0apP7lycohY52ahvfc6NHeu_1W9J4pHGL7PPp60ZcouLmpPO7PhhjNeiU3V2H_1K1PS"/>
+<div class="absolute top-4 right-4 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="text-center">
+<h5 class="font-nav text-xs uppercase tracking-[0.2em] text-slate-500 mb-2">Grand Collection</h5>
+<h4 class="font-display text-xl mb-3">The Rose Master II</h4>
+<p class="font-body text-primary font-bold mb-6">$12,450.00</p>
+<button class="w-full border border-primary text-primary py-3 font-nav text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                            Add to Cart
+                        </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group">
+<div class="relative aspect-[4/5] bg-background-light mb-6 flex items-center justify-center p-8 overflow-hidden">
+<img alt="Chronos Sea Dweller" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" data-alt="Sleek silver dive watch with a deep blue dial" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy57rfY3q0eNlYt0eh8J2lsjOZQH8q6oUfQH5xJJ9AqUFpKR8-XCxL54KcR0gxT4Wur85juJ6afcu-5UEa_FALmqmbIFoJ_m1lTciCajDcvfU487tNTdFN-hR-H7HPw1d9LaQiZjEWWIsgciT2l3BiKk3QMAjq1M6fQJ2l1gj9AGgIg9-v-knMElAb3HpRSzh3woK7mg47gA6iyF1Od19f9eSL5A8own7UTPy6auKavhGVCAqWAbZoqssQ1oPVOZlWeogndQf2Nr-j"/>
+<div class="absolute top-4 right-4">
+<button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="text-center">
+<h5 class="font-nav text-xs uppercase tracking-[0.2em] text-slate-500 mb-2">Nautical Series</h5>
+<h4 class="font-display text-xl mb-3">Deep Ocean Pro</h4>
+<p class="font-body text-primary font-bold mb-6">$8,900.00</p>
+<button class="w-full border border-primary text-primary py-3 font-nav text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                            Add to Cart
+                        </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group">
+<div class="relative aspect-[4/5] bg-background-light mb-6 flex items-center justify-center p-8 overflow-hidden">
+<img alt="Chronos Aviator" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" data-alt="Matte black aviation watch with luminous green hands" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Fd9UhJ3WRjVu8NM8Ri4GeEzxXjuUNKQVWBWeobbsr4IMF20zJa62nJQuSMqNuNidnvYtZ_KgChAbPPnC9N821ggiVb5s96ABGQ4g2Js-6JgTmY_hq7NJ7eP6AZJ-W1ho3pgAef7i0dysZWmIoUS_fElxQ5y71SkXkrqzXBdifZyxLbADHQRV-Vw5TYBGJxUC3V9l_QcVOnO4iYxqkoQfkgt3y8JfdvoDtIgT5c2JVHnnBzBf6MkWNk5xhf2a-XBTIjTQ9Pyoky26"/>
+<div class="absolute top-4 right-4">
+<button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="text-center">
+<h5 class="font-nav text-xs uppercase tracking-[0.2em] text-slate-500 mb-2">Aviation Elite</h5>
+<h4 class="font-display text-xl mb-3">Stealth Pilot X</h4>
+<p class="font-body text-primary font-bold mb-6">$15,200.00</p>
+<button class="w-full border border-primary text-primary py-3 font-nav text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                            Add to Cart
+                        </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group">
+<div class="relative aspect-[4/5] bg-background-light mb-6 flex items-center justify-center p-8 overflow-hidden">
+<img alt="Chronos Minimalist" class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" data-alt="Thin gold watch with a minimalist white face and brown strap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb1IW-8_CLsIZdxdtYYxXwkATnvYkGHE2q1e-DimL5wSzUxkfl4_n2k1wDfXEsETLwgM4kY2XLwQqFZAod-KYOAVh1Eyw_t3aIsw51YSdGJprIrCG7B7RMc8VWzsWS_Dxj_kz14yTDIXZu_tt022KwcARXugPwzLgj-ofoPoDQMFTnfsjdTCOXbmte8hJ8hm8ZnHvwX_Wcpm2fP0YT40SprGqTHVQkiA3m_0r5JPwLFbKvWSm55QJBLGVOIwQwrOg8NODnn-Yrg17_"/>
+<div class="absolute top-4 right-4">
+<button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="text-center">
+<h5 class="font-nav text-xs uppercase tracking-[0.2em] text-slate-500 mb-2">Classic Series</h5>
+<h4 class="font-display text-xl mb-3">Heritage Gold</h4>
+<p class="font-body text-primary font-bold mb-6">$5,400.00</p>
+<button class="w-full border border-primary text-primary py-3 font-nav text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                            Add to Cart
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Flash Sale -->
+<section class="bg-background-dark py-24">
+<div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+<h5 class="font-nav text-primary font-bold uppercase tracking-[0.4em] mb-4">Limited Availability</h5>
+<h2 class="font-display text-5xl md:text-7xl text-white mb-10">Exclusive Flash Sale</h2>
+<div class="flex gap-4 md:gap-8 mb-12">
+<div class="flex flex-col items-center">
+<span class="text-4xl md:text-6xl font-display text-white">02</span>
+<span class="font-nav text-xs uppercase text-slate-500 tracking-widest mt-2">Hours</span>
+</div>
+<div class="text-4xl md:text-6xl font-display text-primary">:</div>
+<div class="flex flex-col items-center">
+<span class="text-4xl md:text-6xl font-display text-white">45</span>
+<span class="font-nav text-xs uppercase text-slate-500 tracking-widest mt-2">Minutes</span>
+</div>
+<div class="text-4xl md:text-6xl font-display text-primary">:</div>
+<div class="flex flex-col items-center">
+<span class="text-4xl md:text-6xl font-display text-white">12</span>
+<span class="font-nav text-xs uppercase text-slate-500 tracking-widest mt-2">Seconds</span>
+</div>
+</div>
+<button class="bg-primary text-white px-12 py-5 rounded font-nav font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl shadow-primary/20">
+                Shop Sale Now
+            </button>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-24 max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-3 gap-12">
+<div class="flex flex-col items-center text-center p-8 bg-white dark:bg-black/10 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">verified_user</span>
+<h4 class="font-nav font-bold text-lg uppercase mb-4 tracking-wider">Lifetime Warranty</h4>
+<p class="text-slate-500 text-sm leading-relaxed">Our commitment to quality extends beyond your purchase. Enjoy peace of mind with our lifetime craftsmanship guarantee.</p>
+</div>
+<div class="flex flex-col items-center text-center p-8 bg-white dark:bg-black/10 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">workspace_premium</span>
+<h4 class="font-nav font-bold text-lg uppercase mb-4 tracking-wider">Master Craftsmanship</h4>
+<p class="text-slate-500 text-sm leading-relaxed">Every timepiece is hand-assembled by master horologists with over 20 years of experience in high-end Swiss watchmaking.</p>
+</div>
+<div class="flex flex-col items-center text-center p-8 bg-white dark:bg-black/10 border border-primary/10">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">local_shipping</span>
+<h4 class="font-nav font-bold text-lg uppercase mb-4 tracking-wider">Secure Delivery</h4>
+<p class="text-slate-500 text-sm leading-relaxed">Complimentary insured worldwide shipping. Your timepiece is tracked and protected from our door to yours.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 bg-primary/5">
+<div class="max-w-7xl mx-auto px-6">
+<h3 class="font-display text-4xl mb-16 text-center">Connoisseur Perspectives</h3>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-background-dark p-10 shadow-sm border border-primary/5">
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">"The attention to detail on the Rose Master II is simply breathtaking. It's more than a watch; it's a conversation piece that holds its value."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20"></div>
+<div>
+<p class="font-nav font-bold text-sm uppercase">Jameson Thorne</p>
+<p class="text-xs text-primary">Collector since 2012</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark p-10 shadow-sm border border-primary/5">
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">"CHRONOS has bridged the gap between heritage design and modern technology flawlessly. Their customer service is unmatched."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20"></div>
+<div>
+<p class="font-nav font-bold text-sm uppercase">Elena Rossi</p>
+<p class="text-xs text-primary">Style Director</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark p-10 shadow-sm border border-primary/5">
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">"Authenticity was my main concern when buying online. CHRONOS provided complete certification and a seamless buying experience."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/20"></div>
+<div>
+<p class="font-nav font-bold text-sm uppercase">Marcus Vaughn</p>
+<p class="text-xs text-primary">Business Executive</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="bg-primary py-20">
+<div class="max-w-4xl mx-auto px-6 text-center text-white">
+<h3 class="font-display text-4xl mb-4">Join the Inner Circle</h3>
+<p class="font-nav text-sm uppercase tracking-widest opacity-80 mb-10">Receive early access to new releases and exclusive events</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+<input class="flex-1 px-8 py-4 bg-white/10 border border-white/20 rounded-none focus:ring-0 text-white placeholder:text-white/60" placeholder="Enter your email address" type="email"/>
+<button class="bg-white text-primary px-10 py-4 font-nav font-bold uppercase tracking-widest hover:bg-neutral-muted transition-colors">
+                    Subscribe
+                </button>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-background-dark pt-24 pb-12 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+<div>
+<a class="flex items-center gap-2 mb-8" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">watch</span>
+<h2 class="font-nav text-2xl font-bold tracking-widest text-white">CHRONOS</h2>
+</a>
+<p class="text-slate-500 text-sm leading-relaxed mb-8">
+                    Defining the art of time since 1994. Our journey is paved with precision, luxury, and the pursuit of horological perfection.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">thumb_up</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-nav font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
+<ul class="flex flex-col gap-4 text-slate-500 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Men's Collection</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Women's Collection</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Limited Editions</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Bespoke Services</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-nav font-bold uppercase tracking-widest text-sm mb-8">Concierge</h4>
+<ul class="flex flex-col gap-4 text-slate-500 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Return &amp; Exchange</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Watch Care Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Store Locator</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-nav font-bold uppercase tracking-widest text-sm mb-8">Contact Us</h4>
+<div class="flex flex-col gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<p class="text-slate-500 text-sm">1245 Fifth Avenue, New York, NY 10102</p>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">mail</span>
+<p class="text-slate-500 text-sm">concierge@chronos.com</p>
+</div>
+<button class="bg-[#25D366] text-white flex items-center justify-center gap-3 py-3 rounded font-nav font-bold uppercase tracking-widest text-xs hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">chat</span>
+                        WhatsApp Support
+                    </button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-slate-600 text-xs uppercase tracking-widest">© 2024 CHRONOS Watches. All Rights Reserved.</p>
+<div class="flex gap-8 text-slate-600 text-xs uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

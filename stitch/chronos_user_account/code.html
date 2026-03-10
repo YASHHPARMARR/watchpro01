@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c4a5d",
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<title>CHRONOS | Account Settings</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white dark:bg-background-dark px-6 lg:px-40 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">hourglass_empty</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight uppercase">CHRONOS</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full bg-primary/20 bg-cover bg-center border border-primary/30" data-alt="Professional user profile headshot photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAv5bnfq4MAYRYLGM6BE9cMbLYPfE_sSu0wpjGVdqTCbguBuhPfp9eKElM93ETZTmvua2XcfrmTzRXiWdYZ_s5m4iQRKEHuFZLDXkR6at89gZ4FWL6iK6nrSL2g86rbOCj6Py3tmdJE5rLIUohyZHfmZj7jjnME4tYiAHvl2sCqB2-zVSJ8qYOBywQGz7fWnO_l_KnVKa9ZPCJ46ONmBfQhhrRYOy8JSMJa4XMcTmHJwB_AnsY-e80ALHzvxnG1zi790YebNzkW_an_")'></div>
+</div>
+</header>
+<main class="flex-1 px-6 lg:px-40 py-8 lg:py-12">
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Sidebar Navigation -->
+<aside class="w-full lg:w-64 flex flex-col gap-6">
+<div class="flex items-center gap-4 px-2">
+<div class="h-12 w-12 rounded-full bg-cover bg-center ring-2 ring-primary/20" data-alt="User avatar close up portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhJEDnJreE9oLP209cb7lts5Wykg_Ws3qIizMcmHyS9uXFjIkbmkU62vddsdCkBcX0-_ByYu6JYkmD4CO-bt0PxUl2FQA9ZkrVnxOGIOChV_NBI-OGiFnu-U2JLyuJByUQKHFubmaN5AAkF4bFuDNMQuMZMOC2AMmx3kLIWjajOB_C5oXACXsQIombG_b13CZyJopKERP2TyGKywSy-WI1I207bWwxTCuNFY0RFU9sSY6FoOZ9n64tvYCvb-FT5F3QVOxRl9LJLCsa")'></div>
+<div class="flex flex-col">
+<h3 class="font-bold text-slate-900 dark:text-white leading-none">Alex Johnson</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Premium Member</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-white shadow-md shadow-primary/20" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-sm font-semibold">Profile Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+<span class="text-sm font-semibold">Order History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">favorite</span>
+<span class="text-sm font-semibold">My Wishlist</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">location_on</span>
+<span class="text-sm font-semibold">Shipping Addresses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">notifications_active</span>
+<span class="text-sm font-semibold">Notifications</span>
+</a>
+<div class="mt-4 pt-4 border-t border-primary/10">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">logout</span>
+<span class="text-sm font-semibold">Sign Out</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- Content Area -->
+<div class="flex-1 max-w-3xl space-y-10">
+<!-- Header -->
+<section>
+<h1 class="text-3xl font-black tracking-tight text-slate-900 dark:text-white">Account Settings</h1>
+<p class="text-slate-500 dark:text-slate-400 mt-2">Manage your personal details and security preferences to keep your account safe.</p>
+</section>
+<!-- Profile Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 lg:p-8 border border-primary/10 shadow-sm">
+<div class="flex items-center gap-2 mb-6 text-primary">
+<span class="material-symbols-outlined">badge</span>
+<h2 class="text-lg font-bold tracking-tight">Personal Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500">First Name</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-slate-800 focus:border-primary focus:ring-primary text-sm p-3" type="text" value="Alex"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500">Last Name</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-slate-800 focus:border-primary focus:ring-primary text-sm p-3" type="text" value="Johnson"/>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500">Email Address</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-slate-800 focus:border-primary focus:ring-primary text-sm p-3" type="email" value="alex.j@example.com"/>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500">Biography</label>
+<textarea class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-slate-800 focus:border-primary focus:ring-primary text-sm p-3" rows="3">Time enthusiast based in London. Collecting vintage chronographs since 2015.</textarea>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg text-sm transition-all transform active:scale-95 shadow-lg shadow-primary/20">
+                                Save Changes
+                            </button>
+</div>
+</section>
+<!-- Security Section -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 lg:p-8 border border-primary/10 shadow-sm">
+<div class="flex items-center gap-2 mb-6 text-primary">
+<span class="material-symbols-outlined">security</span>
+<h2 class="text-lg font-bold tracking-tight">Security &amp; Password</h2>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500">Current Password</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-slate-800 focus:border-primary focus:ring-primary text-sm p-3" placeholder="••••••••••••" type="password"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500">New Password</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-slate-800 focus:border-primary focus:ring-primary text-sm p-3" type="password"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-500">Confirm New Password</label>
+<input class="w-full rounded-lg border-primary/20 bg-background-light dark:bg-slate-800 focus:border-primary focus:ring-primary text-sm p-3" type="password"/>
+</div>
+</div>
+<div class="pt-4 border-t border-primary/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div>
+<p class="text-sm font-bold">Two-Factor Authentication</p>
+<p class="text-xs text-slate-500 mt-1">Secure your account with an extra layer of protection.</p>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+<span class="material-symbols-outlined text-[18px]">add_moderator</span>
+                                    Enable 2FA
+                                </button>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="bg-primary/10 text-primary hover:bg-primary/20 font-bold py-3 px-8 rounded-lg text-sm transition-all transform active:scale-95">
+                                Update Password
+                            </button>
+</div>
+</section>
+<!-- Danger Zone -->
+<section class="border-t border-primary/10 pt-10">
+<div class="bg-red-50 dark:bg-red-900/10 rounded-xl p-6 border border-red-200 dark:border-red-900/30">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div>
+<h3 class="text-red-700 dark:text-red-400 font-bold">Delete Account</h3>
+<p class="text-red-600/70 dark:text-red-400/70 text-sm mt-1">Once you delete your account, there is no going back. Please be certain.</p>
+</div>
+<button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg text-sm transition-colors">
+                                    Delete My Account
+                                </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer Footer -->
+<footer class="mt-auto border-t border-primary/10 bg-white dark:bg-background-dark px-6 lg:px-40 py-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 opacity-50 grayscale">
+<span class="material-symbols-outlined">hourglass_empty</span>
+<span class="text-xs font-bold uppercase tracking-widest leading-none">CHRONOS</span>
+</div>
+<p class="text-slate-400 text-xs tracking-wide">© 2024 CHRONOS WATCHMAKING. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors text-xs font-medium" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-primary transition-colors text-xs font-medium" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

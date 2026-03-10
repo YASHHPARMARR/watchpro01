@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHRONOS | My Orders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c4a5d",
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="flex min-h-screen">
+<!-- SideNav Component -->
+<aside class="w-64 border-r border-primary/10 bg-white dark:bg-background-dark/50 hidden md:flex flex-col sticky top-0 h-screen">
+<div class="p-6 flex flex-col h-full">
+<!-- Brand -->
+<div class="flex items-center gap-3 mb-10">
+<div class="bg-primary size-10 rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">watch</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-lg font-extrabold tracking-tight leading-none uppercase">CHRONOS</h1>
+<p class="text-primary text-xs font-semibold">Premium Timepieces</p>
+</div>
+</div>
+<!-- Nav Links -->
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-white shadow-lg shadow-primary/20" href="#">
+<span class="material-symbols-outlined text-[22px]">package_2</span>
+<span class="text-sm font-semibold">My Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">watch</span>
+<span class="text-sm font-semibold">Watch Collection</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">favorite</span>
+<span class="text-sm font-semibold">Wishlist</span>
+</a>
+<div class="my-4 border-t border-primary/10"></div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-sm font-semibold">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">help</span>
+<span class="text-sm font-semibold">Support</span>
+</a>
+</nav>
+<!-- User Profile Mini -->
+<div class="mt-auto pt-6 border-t border-primary/10 flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/20 bg-cover bg-center" data-alt="User profile avatar close up" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmnDDF1colFbVwra4C5YHdBE_QHR5-DkcbdDeb5NOghEB7lD7_BNe8lCJI4HCUfpR-zNqenO4icCVbiXBAbwlM7QWeVQTTPSnEcth5qQ5Wpv2IvhGaiXtGkCFwhZVWUADiDsd5sgfd4CTHyZYHNXfn74CCMU7PkfeWv-3Vk6mwVhyIO0DqjEbbrGDJePd1pa49hD4yB-660y8gRPvDKi_REB_spks24OYFARFsCE5DDsVxzJfbZMx-5xK3WznpYV2d4dq9qmk3fGCi')"></div>
+<div class="flex-1 overflow-hidden">
+<p class="text-sm font-bold truncate">Julian Thorne</p>
+<p class="text-xs text-slate-500 truncate">Pro Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto">
+<!-- Header Area -->
+<header class="p-8 pb-4">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Order History</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-1">Manage and track your luxury timepiece acquisitions.</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative">
+<input class="pl-10 pr-4 py-2 bg-white dark:bg-background-dark border border-primary/20 rounded-lg text-sm focus:ring-primary focus:border-primary w-full md:w-64" placeholder="Search orders..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Orders List -->
+<section class="p-8 space-y-4">
+<!-- Order Card 1: Delivered -->
+<div class="bg-white dark:bg-background-dark/40 border border-primary/10 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col lg:flex-row lg:items-center gap-6">
+<!-- Order Basic Info -->
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<span class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-1 rounded">Order #CRN-98231</span>
+<span class="text-xs font-medium text-slate-400">Oct 24, 2023</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Heirloom Chronograph Collection</h3>
+<p class="text-sm text-slate-500 mt-1">Ships to: 1224 Fifth Ave, NY</p>
+</div>
+<!-- Item Thumbnails -->
+<div class="flex items-center -space-x-3">
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-background-light overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Luxury gold watch minimalist illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpjicS5iT-mvYwJAYmKtaYz4-DNqFA7X7lvGDt-WVNFqV0aC3rgU5MlmrKfuo2I1hHwBFZAP674X-PWuf4b3SvbxZcVdURTTPdkiS4Kd_1urvASfcAvXqAx8D-QeFqk-0L5U0Wch8uAe7M_933YcEMd8dNKrvfquowA_s62Ot3mO-9_HQciDWDOZKnlfM5WEHBSfoWPnxZL2Kv8TJCDPhw9Kk_1QjM-6Ic7fGXEiXcnNIuwsLijzA6bCJBtf5N93E9NDEz_YAPtyZ"/>
+</div>
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-background-light overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Silver automatic watch minimalist illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCNdx0Xzeqoo7XU-TXxLsCOF66rRDfqsuArR_sU6j0Y_W5RSaEXlsZy6SQjCqnGMOKNbaDbjMI9_uLSQ4waVPrF-SIL7cMQga-gOcLUBi70eDI05TQGZA56CvxGv1r1HM4x_Pd6q5_nNRlElBIkEuOhMwl8fv-jaPnxrJqSMw16srAfdr52a-c7mlPbHN_yc6zya6vp3l69UJ4vqgt3RxKPM6ElxXUNI7gLQsnfFbcJOgKiZkNgUia8WocLJcPBJoprAKY6dCKE1ad"/>
+</div>
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-background-light overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Black leather strap watch illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd-F5lgP_RjWbLC2i0OR6lGUYlmpRmeoGArC7OosqocqriMika5LwDasqXVmG6ByMOndkGAqD8u-gHmcEKmjisPbbMSXQH_hl-xePDZSJKosewShDc9YD4MVOCLRwWWoGGHp6vB4wGlnAkD70UQxLgn0X6exjMYe0-DYIuAF0dgMc_H-17L7G_3iBZHrdhWM-k5lUFJTK14Rv2tFyaOqYNNc19rP7-tG9awwDrwIP7A71EbnbzB5DCU3KrbYqNq8XNVlnk_OeK-NFm"/>
+</div>
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-primary/10 flex items-center justify-center shadow-sm">
+<span class="text-xs font-bold text-primary">+1</span>
+</div>
+</div>
+<!-- Pricing & Status -->
+<div class="flex flex-col lg:items-end gap-2 lg:min-w-[150px]">
+<p class="text-xl font-black text-primary">$4,250.00</p>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                                DELIVERED
+                            </div>
+</div>
+<!-- Action -->
+<div>
+<button class="w-full lg:w-auto px-6 py-2.5 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors uppercase tracking-tight">
+                                View Details
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Order Card 2: Shipped -->
+<div class="bg-white dark:bg-background-dark/40 border border-primary/10 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col lg:flex-row lg:items-center gap-6">
+<!-- Order Basic Info -->
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<span class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-1 rounded">Order #CRN-87442</span>
+<span class="text-xs font-medium text-slate-400">Nov 12, 2023</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Midnight Noir Series - Limited Edition</h3>
+<p class="text-sm text-slate-500 mt-1">Ships to: 1224 Fifth Ave, NY</p>
+</div>
+<!-- Item Thumbnails -->
+<div class="flex items-center -space-x-3">
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-background-light overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="All black watch face design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5878AXSUrngVcJhV6zh2qYNFsdJT5ywCYeXvlD5f4_00cF1EYb9aBpKuoASbrCZuMZkDQYfSxH8JDrmZusRu6QAGKcE1c6__5yN3gT4eONDeKXN1DIXUxKAq9UKq1PfZA6BJag6qNjQCAPKLXfiMxv-ToTHWcf6V0i5lrW9K700YjtvgnXJnnpB2mH0fCaDUbZ_A7AwpOMGgc9CmyWR-1-uZMfFXHGj8i0ZaPJC7CZKmFa27_6lhpy7nTf-DD3Fk2YHzLBnaG2ssK"/>
+</div>
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-background-light overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Dark sapphire crystal watch side profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfJjyDlAgMzsop1SrJG8j_qd923QJbnYASX1EXpFtuRhWyZ7cEHaJju4AxYhUhpIfg3Ond4XegYj88QZNH0p5WdD9D9bIU9Kx5voiOOaOSuNlG77DWVWRLKD3IuiK33p8cTheTuEQ_LI9frcL2vWN1K1TuBNE0U9vK8KOr_FG0KlxXEoFn3b2g2HWgS867Y4XvqCvAkxet41NwrUMU4hJVUcFD_HahRQ8cxLpWx0CPoa2DEEQvuRfb3XmkQowrT7_u9atsosagTdlm"/>
+</div>
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-background-light overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Minimalist dark grey watch band" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeEoD4H-WoN6NZ-vxp7TnU488EkgK1EF2sGzvfJaOM00FXaPgP7-od6HZ_ZNjqaImOxLNnL98q1wEHnPOH_GIThzYwmKwl1lcF_yZd7g8YrSmsm3LuV3PtQdLeCURwWWHbDtRAOHlc9JG4oqq3u9MpSOw5-Cp9ItNavOB5ZbDBK0DV3zkipYczHStYZpjeGDRfY9ipkBuGbsm6YxccyneGA1C-T8sKCkoLpdWCgRzWHWrWbpNpx1-ZuAtp2R647cql9gbeltWnL5FE"/>
+</div>
+</div>
+<!-- Pricing & Status -->
+<div class="flex flex-col lg:items-end gap-2 lg:min-w-[150px]">
+<p class="text-xl font-black text-primary">$1,890.00</p>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+                                SHIPPED
+                            </div>
+</div>
+<!-- Action -->
+<div>
+<button class="w-full lg:w-auto px-6 py-2.5 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors uppercase tracking-tight">
+                                View Details
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Order Card 3: Pending -->
+<div class="bg-white dark:bg-background-dark/40 border border-primary/10 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex flex-col lg:flex-row lg:items-center gap-6">
+<!-- Order Basic Info -->
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<span class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-1 rounded">Order #CRN-72109</span>
+<span class="text-xs font-medium text-slate-400">Dec 05, 2023</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Oceanic Diver Professional Pack</h3>
+<p class="text-sm text-slate-500 mt-1">Ships to: 1224 Fifth Ave, NY</p>
+</div>
+<!-- Item Thumbnails -->
+<div class="flex items-center -space-x-3">
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-background-light overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Blue face diver watch with metal strap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmXXwGONiS1EuPzy1T2tpa5YaUwOEf8K5eRbGLaYhpW7Rc6DRmvr4opqJ-XLxXE_Tp7rJV7M89UfH3GcfXc9ATw4zxc3ZgaERmXpppaEjAKIQnQ218fgzGh93Qd4tJWDDyQ9hPFf4p0JQoFqdYgKPzv6291-G07SVE65Wanv0apjSbyYjfKeaMPJfSGBixCr0MFBvoHWY7iklDt2MnmRuqhUmlZ35mG_EePPWXkWDQhlPMt5kPVfvUc2oMFdkZHvMmh7Y_vnHPez9S"/>
+</div>
+<div class="size-14 rounded-lg border-2 border-white dark:border-background-dark bg-background-light overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Watch cleaning and maintenance toolkit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCexSF3sXyyEUjoQRieMqnMyalM0Woz0cOcgsKZlr7hJH-aD31E1zxQPwXH4HeJWScf7Urdas7FU0ikt2SUXZAd4rWac93_7DJPLM-lrTsNhll-hXVSfzBKcz7YWr4N9Q-BV7Z0XcQWBsMZ7N2qL5TOFfyhxHgIUqPMHGbf3J__Zcrv8Tw5LKp08KPlaNpDwASikT199MOYJ7eNf6Vvex7RuhXoYiZaCZOFU-SrFIdfELJcjT5MDTdqbByJBZXf-OaP4WNIEG4YYkBp"/>
+</div>
+</div>
+<!-- Pricing & Status -->
+<div class="flex flex-col lg:items-end gap-2 lg:min-w-[150px]">
+<p class="text-xl font-black text-primary">$3,120.50</p>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                PENDING
+                            </div>
+</div>
+<!-- Action -->
+<div>
+<button class="w-full lg:w-auto px-6 py-2.5 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition-colors uppercase tracking-tight">
+                                View Details
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State Indicator / Load More -->
+<div class="pt-8 flex flex-col items-center">
+<button class="px-8 py-3 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg font-bold transition-all uppercase text-sm tracking-widest">
+                        Load More Orders
+                    </button>
+<p class="text-slate-400 text-xs mt-4">Showing 3 of 42 recent orders</p>
+</div>
+</section>
+</main>
+</div>
+</body></html>

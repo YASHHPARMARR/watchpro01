@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHRONOS | Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Josefin+Sans:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c4a5d", // Rose Mauve
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "nav": ["Josefin Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .sidebar-item {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="flex min-h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-background-dark text-slate-100 flex flex-col border-r border-primary/20 shrink-0">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-primary size-10 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white">schedule</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-xl font-bold tracking-tight sidebar-item uppercase">CHRONOS</h1>
+<p class="text-[10px] text-primary uppercase tracking-widest font-bold">Nexus OS</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<div class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-white cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</div>
+<div class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer text-slate-400 hover:text-white">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</div>
+<div class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer text-slate-400 hover:text-white">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Revenue</span>
+</div>
+<div class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer text-slate-400 hover:text-white">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</div>
+<div class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 transition-colors cursor-pointer text-slate-400 hover:text-white">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Reports</span>
+</div>
+</nav>
+<div class="p-4 border-t border-white/5 space-y-2">
+<div class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary/10 cursor-pointer text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white/5 rounded-xl">
+<div class="size-8 rounded-full bg-cover bg-center" data-alt="User profile avatar male business" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0foNiK7kt4e9uDr8SsZQ7y_bszFwfvqPaRDA_xBzKNCZ-0TT4uv7BXw4nTI9uJaS-PW5GCWK5-sZvQla1xmx4zMY_hmEWcF3reYP6P6GQeMCdbEcrhrEkr-2Pxc8EHoyn2pxQM3kQYuuv65nCaXj3KooQ2fu_5PcA9a58kH2RDTmpr_H-_Ky0Z-zRSQGAeozXZzUR7yDRy-3spFjqndj6mGThtSPDnrzaE0rWZDtapT6j-Uaqrlv-ARg9wFqpKHVX2aAHQJpTQo0H')"></div>
+<div class="flex flex-col">
+<p class="text-xs font-bold sidebar-item">Alex Vesper</p>
+<p class="text-[10px] text-slate-500">Super Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-8">
+<!-- Header -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-slate-100 tracking-tight">System Overview</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Welcome back, Alex. Your operations are currently stable.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-white/10 rounded-xl bg-white dark:bg-white/5 text-sm font-medium">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                        Last 30 Days
+                    </button>
+<button class="bg-primary text-white px-6 py-2 rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                        Generate Report
+                    </button>
+</div>
+</header>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-200 dark:border-white/10">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">shopping_basket</span>
+</div>
+<span class="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-full">+12.5%</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Orders</p>
+<p class="text-3xl font-black mt-1">1,284</p>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-200 dark:border-white/10">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-xs font-bold text-red-500 bg-red-500/10 px-2 py-1 rounded-full">-2.4%</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Revenue</p>
+<p class="text-3xl font-black mt-1">$45,230.00</p>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-xl border border-slate-200 dark:border-white/10">
+<div class="flex items-center justify-between mb-4">
+<div class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">package_2</span>
+</div>
+<span class="text-xs font-bold text-green-500 bg-green-500/10 px-2 py-1 rounded-full">+5.1%</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Active Products</p>
+<p class="text-3xl font-black mt-1">432</p>
+</div>
+</section>
+<!-- Charts Section -->
+<section class="mb-8">
+<div class="bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 p-6">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="text-xl font-bold tracking-tight">Sales Performance</h3>
+<p class="text-slate-500 text-sm">Revenue growth compared to last quarter</p>
+</div>
+<div class="flex gap-2">
+<div class="flex items-center gap-1">
+<span class="size-2 rounded-full bg-primary"></span>
+<span class="text-xs font-medium text-slate-500">Revenue</span>
+</div>
+</div>
+</div>
+<div class="h-64 w-full relative">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 300">
+<!-- Background Gradient -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#8c4a5d" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#8c4a5d" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines -->
+<line class="stroke-slate-200 dark:stroke-white/5" stroke-width="1" x1="0" x2="1000" y1="50" y2="50"></line>
+<line class="stroke-slate-200 dark:stroke-white/5" stroke-width="1" x1="0" x2="1000" y1="150" y2="150"></line>
+<line class="stroke-slate-200 dark:stroke-white/5" stroke-width="1" x1="0" x2="1000" y1="250" y2="250"></line>
+<!-- Area -->
+<path d="M0,250 L100,180 L200,210 L300,120 L400,160 L500,80 L600,100 L700,40 L800,90 L900,60 L1000,30 L1000,300 L0,300 Z" fill="url(#chartGradient)"></path>
+<!-- Line -->
+<path d="M0,250 L100,180 L200,210 L300,120 L400,160 L500,80 L600,100 L700,40 L800,90 L900,60 L1000,30" fill="none" stroke="#8c4a5d" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+</svg>
+<!-- Timeline Labels -->
+<div class="flex justify-between mt-4 px-2">
+<span class="text-xs font-bold text-slate-400">MAY</span>
+<span class="text-xs font-bold text-slate-400">JUN</span>
+<span class="text-xs font-bold text-slate-400">JUL</span>
+<span class="text-xs font-bold text-slate-400">AUG</span>
+<span class="text-xs font-bold text-slate-400">SEP</span>
+<span class="text-xs font-bold text-slate-400">OCT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Table Section -->
+<section>
+<div class="bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10 overflow-hidden">
+<div class="p-6 flex items-center justify-between border-b border-slate-200 dark:border-white/10">
+<h3 class="text-xl font-bold tracking-tight">Recent Orders</h3>
+<button class="text-primary text-sm font-bold hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-slate-50 dark:bg-white/5 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+<th class="px-6 py-4">Order ID</th>
+<th class="px-6 py-4">Customer</th>
+<th class="px-6 py-4">Product</th>
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Amount</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-white/10">
+<tr class="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-sm font-bold">#ORD-2849</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold">JD</div>
+<span class="text-sm">John Doe</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Chronos MK-1</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 24, 2023</td>
+<td class="px-6 py-4 text-sm font-black">$299.00</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded-full uppercase">Delivered</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-sm font-bold">#ORD-2850</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">SA</div>
+<span class="text-sm">Sarah Adams</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Eon Glass</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 25, 2023</td>
+<td class="px-6 py-4 text-sm font-black">$1,150.00</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-amber-500/10 text-amber-500 text-[10px] font-bold rounded-full uppercase">Processing</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-sm font-bold">#ORD-2851</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold">MB</div>
+<span class="text-sm">Michael Brown</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Nexus Core</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 25, 2023</td>
+<td class="px-6 py-4 text-sm font-black">$840.00</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-blue-500/10 text-blue-500 text-[10px] font-bold rounded-full uppercase">Shipped</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 text-sm font-bold">#ORD-2852</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold">EM</div>
+<span class="text-sm">Emma Miller</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">Temporal Sync</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 26, 2023</td>
+<td class="px-6 py-4 text-sm font-black">$45.00</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] font-bold rounded-full uppercase">Cancelled</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

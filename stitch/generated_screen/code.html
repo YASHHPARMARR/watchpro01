@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHRONOS Visual Sitemap &amp; Navigation Flow</title>
+<!-- Load Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration for Custom Colors -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            roseBackground: '#F9F3F0',
+            roseAccent: '#8B4A5C',
+            roseText: '#2A1520',
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="layout-and-graphics">
+    body {
+      background-color: #F9F3F0;
+      color: #2A1520;
+      font-family: 'Inter', sans-serif;
+    }
+    /* SVG Connector Line Styles */
+    .flow-line {
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    /* Flow specific stroke colors */
+    .stroke-customer { stroke: #8B4A5C; }
+    .stroke-account { stroke: #4A5C8B; } /* Complementary blue-tint for account */
+    .stroke-admin { stroke: #5C8B4A; }    /* Complementary green-tint for admin */
+    
+    /* Card Hover Effect */
+    .node-card {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .node-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(139, 74, 92, 0.1);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="p-8 md:p-12">
+<!-- BEGIN: MainHeader -->
+<header class="mb-12 text-center" data-purpose="page-header">
+<h1 class="text-4xl font-serif font-bold tracking-widest uppercase mb-2">CHRONOS</h1>
+<p class="text-roseAccent font-medium tracking-wide">Luxury Watch eCommerce - System Navigation Map</p>
+</header>
+<!-- END: MainHeader -->
+<main class="max-w-7xl mx-auto">
+<!-- BEGIN: Legend -->
+<section class="mb-12 flex flex-wrap justify-center gap-8" data-purpose="legend">
+<div class="flex items-center gap-3">
+<div class="w-8 h-1 bg-roseAccent rounded"></div>
+<span class="text-sm font-semibold uppercase tracking-tighter">Customer Flow</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-1 bg-[#4A5C8B] rounded"></div>
+<span class="text-sm font-semibold uppercase tracking-tighter">User Account Flow</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-1 bg-[#5C8B4A] rounded"></div>
+<span class="text-sm font-semibold uppercase tracking-tighter">Admin Portal Flow</span>
+</div>
+</section>
+<!-- END: Legend -->
+<!-- BEGIN: FlowDiagramContainer -->
+<div class="relative min-h-[800px] w-full" id="diagram-container">
+<!-- SVG Layer for Connecting Lines -->
+<svg class="absolute top-0 left-0 w-full h-full pointer-events-none" id="connections-svg" style="z-index: 0;">
+<defs>
+<!-- Arrow Markers -->
+<marker id="arrowhead-customer" markerheight="7" markerwidth="10" orient="auto" refx="9" refy="3.5">
+<polygon fill="#8B4A5C" points="0 0, 10 3.5, 0 7"></polygon>
+</marker>
+<marker id="arrowhead-account" markerheight="7" markerwidth="10" orient="auto" refx="9" refy="3.5">
+<polygon fill="#4A5C8B" points="0 0, 10 3.5, 0 7"></polygon>
+</marker>
+<marker id="arrowhead-admin" markerheight="7" markerwidth="10" orient="auto" refx="9" refy="3.5">
+<polygon fill="#5C8B4A" points="0 0, 10 3.5, 0 7"></polygon>
+</marker>
+</defs>
+<!-- Lines are rendered via JS for dynamic positioning or hardcoded if static layout -->
+<!-- Customer Path -->
+<path class="flow-line stroke-customer" d="M 180 150 L 250 150" marker-end="url(#arrowhead-customer)"></path>
+<path class="flow-line stroke-customer" d="M 410 150 L 480 150" marker-end="url(#arrowhead-customer)"></path>
+<path class="flow-line stroke-customer" d="M 640 150 L 710 150" marker-end="url(#arrowhead-customer)"></path>
+<path class="flow-line stroke-customer" d="M 870 150 L 940 150" marker-end="url(#arrowhead-customer)"></path>
+<path class="flow-line stroke-customer" d="M 1100 150 L 1170 150" marker-end="url(#arrowhead-customer)"></path>
+<!-- Account Path -->
+<path class="flow-line stroke-account" d="M 115 190 L 115 280 L 250 330" marker-end="url(#arrowhead-account)"></path>
+<path class="flow-line stroke-account" d="M 410 330 L 480 330" marker-end="url(#arrowhead-account)"></path>
+<path class="flow-line stroke-account" d="M 640 330 L 710 330" marker-end="url(#arrowhead-account)"></path>
+<!-- Admin Path -->
+<path class="flow-line stroke-admin" d="M 115 500 L 250 500" marker-end="url(#arrowhead-admin)"></path>
+<path class="flow-line stroke-admin" d="M 410 500 L 480 430" marker-end="url(#arrowhead-admin)"></path>
+<path class="flow-line stroke-admin" d="M 410 500 L 480 480" marker-end="url(#arrowhead-admin)"></path>
+<path class="flow-line stroke-admin" d="M 410 500 L 480 530" marker-end="url(#arrowhead-admin)"></path>
+<path class="flow-line stroke-admin" d="M 410 500 L 480 580" marker-end="url(#arrowhead-admin)"></path>
+<path class="flow-line stroke-admin" d="M 410 500 L 480 630" marker-end="url(#arrowhead-admin)"></path>
+</svg>
+<!-- Nodes: Customer Flow -->
+<div class="absolute left-12 top-24 z-10 node-card w-40 p-4 bg-white border border-roseAccent/20 rounded shadow-sm text-center" data-purpose="node-home">
+<div class="h-16 w-full bg-roseBackground mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-roseAccent" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase">Home</span>
+</div>
+<div class="absolute left-[260px] top-24 z-10 node-card w-40 p-4 bg-white border border-roseAccent/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-roseBackground mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-roseAccent" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase">Shop</span>
+</div>
+<div class="absolute left-[490px] top-24 z-10 node-card w-40 p-4 bg-white border border-roseAccent/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-roseBackground mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-roseAccent" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase text-[10px]">Product Detail</span>
+</div>
+<div class="absolute left-[720px] top-24 z-10 node-card w-40 p-4 bg-white border border-roseAccent/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-roseBackground mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-roseAccent" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase">Cart</span>
+</div>
+<div class="absolute left-[950px] top-24 z-10 node-card w-40 p-4 bg-white border border-roseAccent/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-roseBackground mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-roseAccent" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase">Checkout</span>
+</div>
+<div class="absolute left-[1180px] top-24 z-10 node-card w-40 p-4 bg-white border border-roseAccent/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-roseBackground mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-roseAccent" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase text-[10px]">Order Success</span>
+</div>
+<!-- Nodes: User Account Flow -->
+<div class="absolute left-[260px] top-[280px] z-10 node-card w-40 p-4 bg-white border border-[#4A5C8B]/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-[#E8EBf2] mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-[#4A5C8B]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase">Profile</span>
+</div>
+<div class="absolute left-[490px] top-[280px] z-10 node-card w-40 p-4 bg-white border border-[#4A5C8B]/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-[#E8EBf2] mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-[#4A5C8B]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase text-[10px]">Order History</span>
+</div>
+<div class="absolute left-[720px] top-[280px] z-10 node-card w-40 p-4 bg-white border border-[#4A5C8B]/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-[#E8EBf2] mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-[#4A5C8B]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase">Wishlist</span>
+</div>
+<!-- Nodes: Admin Portal Flow -->
+<div class="absolute left-12 top-[450px] z-10 node-card w-40 p-4 bg-white border border-[#5C8B4A]/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-[#EEF5EC] mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-[#5C8B4A]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase">Admin Login</span>
+</div>
+<div class="absolute left-[260px] top-[450px] z-10 node-card w-40 p-4 bg-white border border-[#5C8B4A]/20 rounded shadow-sm text-center">
+<div class="h-16 w-full bg-[#EEF5EC] mb-3 flex items-center justify-center opacity-70">
+<svg class="w-8 h-8 text-[#5C8B4A]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<span class="text-xs font-bold uppercase">Dashboard</span>
+</div>
+<!-- Nested Admin Sub-sections -->
+<div class="absolute left-[490px] top-[380px] z-10 node-card w-40 py-2 px-4 bg-white border border-[#5C8B4A]/10 rounded shadow-xs flex items-center gap-3">
+<svg class="w-4 h-4 text-[#5C8B4A]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-[10px] font-bold uppercase">Products</span>
+</div>
+<div class="absolute left-[490px] top-[430px] z-10 node-card w-40 py-2 px-4 bg-white border border-[#5C8B4A]/10 rounded shadow-xs flex items-center gap-3">
+<svg class="w-4 h-4 text-[#5C8B4A]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-[10px] font-bold uppercase">Orders</span>
+</div>
+<div class="absolute left-[490px] top-[480px] z-10 node-card w-40 py-2 px-4 bg-white border border-[#5C8B4A]/10 rounded shadow-xs flex items-center gap-3">
+<svg class="w-4 h-4 text-[#5C8B4A]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-[10px] font-bold uppercase">Customers</span>
+</div>
+<div class="absolute left-[490px] top-[530px] z-10 node-card w-40 py-2 px-4 bg-white border border-[#5C8B4A]/10 rounded shadow-xs flex items-center gap-3">
+<svg class="w-4 h-4 text-[#5C8B4A]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-[10px] font-bold uppercase">Coupons</span>
+</div>
+<div class="absolute left-[490px] top-[580px] z-10 node-card w-40 py-2 px-4 bg-white border border-[#5C8B4A]/10 rounded shadow-xs flex items-center gap-3">
+<svg class="w-4 h-4 text-[#5C8B4A]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="text-[10px] font-bold uppercase">Settings</span>
+</div>
+</div>
+<!-- END: FlowDiagramContainer -->
+<!-- BEGIN: FooterInfo -->
+<footer class="mt-24 border-t border-roseAccent/10 pt-8 text-center text-roseText/60">
+<p class="text-xs italic">Designed for CHRONOS Luxury Watchmaking Excellence</p>
+<p class="text-[10px] mt-2 uppercase tracking-widest">© 2023 Chronos Systems. All Rights Reserved.</p>
+</footer>
+<!-- END: FooterInfo -->
+</main>
+<script data-purpose="responsive-adjustments">
+    // This script could be used to dynamically redraw SVG lines if the layout was fully responsive/draggable
+    window.addEventListener('resize', () => {
+      // Logic for recalculating path 'd' attributes if cards were to wrap
+    });
+  </script>
+</body></html>

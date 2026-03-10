@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHRONOS Admin - User Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c4a5d",
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 border-r border-primary/10 bg-white dark:bg-background-dark/50 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-10 rounded-xl bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">shutter_speed</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight tracking-tight text-slate-900 dark:text-white">CHRONOS</h1>
+<p class="text-xs font-medium text-primary/70 uppercase tracking-widest">Admin Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">dashboard</span>
+<span class="text-sm font-semibold">Dashboard</span>
+</a>
+<div class="pt-4 pb-2 px-3">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Management</p>
+</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/5" href="#">
+<span class="material-symbols-outlined fill-1">group</span>
+<span class="text-sm font-bold">Customers</span>
+</a>
+<div class="ml-9 space-y-1 mt-1">
+<a class="block px-3 py-1.5 text-sm font-bold text-primary border-l-2 border-primary" href="#">Users</a>
+<a class="block px-3 py-1.5 text-sm font-medium text-slate-500 hover:text-primary transition-colors" href="#">Segments</a>
+</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">shopping_bag</span>
+<span class="text-sm font-semibold">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">inventory_2</span>
+<span class="text-sm font-semibold">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">analytics</span>
+<span class="text-sm font-semibold">Reports</span>
+</a>
+</nav>
+<div class="p-4 border-t border-primary/10">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-primary/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">settings</span>
+<span class="text-sm font-semibold">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- Header -->
+<header class="h-16 border-b border-primary/10 bg-white dark:bg-background-dark/30 flex items-center justify-between px-8">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative max-w-md w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-background-light dark:bg-white/5 border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Search users, orders, or data..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-primary/5 text-slate-500 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-white"></span>
+</button>
+<div class="h-8 w-px bg-primary/10"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none">Alex Rivera</p>
+<p class="text-xs text-slate-500 font-medium mt-1">Super Admin</p>
+</div>
+<img class="size-10 rounded-full border-2 border-primary/20 object-cover" data-alt="Admin profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASrWGKNUHdKNN_V93e-oxYpkxdcIxrw4NCVlUbV-0kQXiXqDx-OAGzhGpbHOsgd9OWk97FlBmG1QhFwKSzpgsevpWwNyvqNsUSbJeiRkLMuvNssXdTqi4vjQX3VfuGT8d3Ov5Sz8kAn09_dsnnaxqCTXEGrGj227EcAqnvRzdQZmSjJ0fApmql0ZSEmZZbezS3WR1X4hMY0XmQNMmxI_z1eGtPcZAxKKKTjwekkoPtE9n31X2z-Q3TJn6mwfqaCoLBLdHev1Zsaxbm"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto p-8 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">User Directory</h2>
+<p class="text-slate-500 font-medium mt-1">A comprehensive list of all registered customers and their activity.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-primary/20 text-slate-700 font-bold rounded-lg hover:bg-primary/5 transition-all text-sm">
+<span class="material-symbols-outlined text-lg">file_download</span>
+                            Export CSV
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white font-bold rounded-lg hover:shadow-lg hover:shadow-primary/20 transition-all text-sm">
+<span class="material-symbols-outlined text-lg">person_add</span>
+                            Add New User
+                        </button>
+</div>
+</div>
+<!-- Stats Overview -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="bg-white dark:bg-white/5 p-4 rounded-xl border border-primary/5">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Users</p>
+<p class="text-2xl font-black mt-1">12,482</p>
+<p class="text-xs text-emerald-500 font-bold mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> +12% this month
+                        </p>
+</div>
+<div class="bg-white dark:bg-white/5 p-4 rounded-xl border border-primary/5">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Active Now</p>
+<p class="text-2xl font-black mt-1">1,204</p>
+<p class="text-xs text-primary font-bold mt-2 flex items-center gap-1">
+                            Live engagement
+                        </p>
+</div>
+<div class="bg-white dark:bg-white/5 p-4 rounded-xl border border-primary/5">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest">New Today</p>
+<p class="text-2xl font-black mt-1">148</p>
+<p class="text-xs text-emerald-500 font-bold mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_up</span> Above average
+                        </p>
+</div>
+<div class="bg-white dark:bg-white/5 p-4 rounded-xl border border-primary/5">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Avg. Lifetime Value</p>
+<p class="text-2xl font-black mt-1">$428.50</p>
+<p class="text-xs text-slate-500 font-bold mt-2">Stable growth</p>
+</div>
+</div>
+<!-- Table Component -->
+<div class="bg-white dark:bg-white/5 rounded-xl border border-primary/10 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-primary/[0.03] border-b border-primary/10">
+<th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">User</th>
+<th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Email Address</th>
+<th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Phone</th>
+<th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest">Joined Date</th>
+<th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest text-center">Orders</th>
+<th class="px-6 py-4 text-xs font-bold text-primary uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<!-- User Row 1 -->
+<tr class="hover:bg-primary/[0.01] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm border border-primary/20">
+                                                JS
+                                            </div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Jane Smith</p>
+<p class="text-xs text-slate-500">Premium Member</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">jane.smith@email.com</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">(555) 123-4567</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">Oct 12, 2023</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary">12 Orders</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="px-3 py-1.5 bg-primary/5 hover:bg-primary hover:text-white text-primary text-xs font-bold rounded-lg transition-all border border-primary/10">
+                                            VIEW ORDERS
+                                        </button>
+</td>
+</tr>
+<!-- User Row 2 -->
+<tr class="hover:bg-primary/[0.01] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold text-sm border border-indigo-200">
+                                                RJ
+                                            </div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Robert Johnson</p>
+<p class="text-xs text-slate-500">Standard User</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">robert.j@email.com</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">(555) 987-6543</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">Nov 05, 2023</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600">5 Orders</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="px-3 py-1.5 bg-primary/5 hover:bg-primary hover:text-white text-primary text-xs font-bold rounded-lg transition-all border border-primary/10">
+                                            VIEW ORDERS
+                                        </button>
+</td>
+</tr>
+<!-- User Row 3 -->
+<tr class="hover:bg-primary/[0.01] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-700 font-bold text-sm border border-rose-200">
+                                                EM
+                                            </div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Emily Miller</p>
+<p class="text-xs text-slate-500">V.I.P.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">emily.m@email.com</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">(555) 456-7890</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">Dec 01, 2023</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary">8 Orders</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="px-3 py-1.5 bg-primary/5 hover:bg-primary hover:text-white text-primary text-xs font-bold rounded-lg transition-all border border-primary/10">
+                                            VIEW ORDERS
+                                        </button>
+</td>
+</tr>
+<!-- User Row 4 -->
+<tr class="hover:bg-primary/[0.01] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-sm border border-emerald-200">
+                                                MK
+                                            </div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Michael Knight</p>
+<p class="text-xs text-slate-500">New Account</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">m.knight@email.com</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">(555) 222-3333</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">Jan 15, 2024</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600">2 Orders</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="px-3 py-1.5 bg-primary/5 hover:bg-primary hover:text-white text-primary text-xs font-bold rounded-lg transition-all border border-primary/10">
+                                            VIEW ORDERS
+                                        </button>
+</td>
+</tr>
+<!-- User Row 5 -->
+<tr class="hover:bg-primary/[0.01] transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold text-sm border border-amber-200">
+                                                LW
+                                            </div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">Liam Wilson</p>
+<p class="text-xs text-slate-500">Standard User</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">l.wilson@email.com</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">(555) 333-4444</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-400">Feb 02, 2024</td>
+<td class="px-6 py-4 whitespace-nowrap text-center">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600">4 Orders</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-right">
+<button class="px-3 py-1.5 bg-primary/5 hover:bg-primary hover:text-white text-primary text-xs font-bold rounded-lg transition-all border border-primary/10">
+                                            VIEW ORDERS
+                                        </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 flex items-center justify-between border-t border-primary/10 bg-primary/[0.01]">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Showing 1 to 5 of 12,482 users</p>
+<div class="flex items-center gap-2">
+<button class="size-8 flex items-center justify-center rounded-lg border border-primary/10 text-slate-400 hover:bg-primary hover:text-white transition-all disabled:opacity-50">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="size-8 flex items-center justify-center rounded-lg bg-primary text-white text-xs font-bold">1</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-primary/5 text-slate-600 text-xs font-bold">2</button>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-primary/5 text-slate-600 text-xs font-bold">3</button>
+<span class="text-slate-400">...</span>
+<button class="size-8 flex items-center justify-center rounded-lg hover:bg-primary/5 text-slate-600 text-xs font-bold">2496</button>
+<button class="size-8 flex items-center justify-center rounded-lg border border-primary/10 text-slate-400 hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

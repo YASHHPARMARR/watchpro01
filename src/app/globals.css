@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DEBUG: If you see red, CSS is loading */
+body {
+  background-color: #F9F3F0 !important;
+}
+
+:root {
+  --primary: #8B4A5C;
+  --background-light: #F9F3F0;
+  --background-dark: #2A1520;
+  --gold: #9A7A82;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background-light)] text-slate-900;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-[var(--primary)]/10;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-10 py-4 rounded-none font-bold uppercase tracking-widest hover:bg-primary/90 transition-all shadow-xl shadow-primary/20;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-10 py-4 rounded-none font-bold uppercase tracking-widest hover:bg-primary/5 transition-all;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-black px-10 py-4 rounded-none font-bold uppercase tracking-widest hover:opacity-90 transition-all;
+  }
+
+  .marquee {
+    @apply flex overflow-hidden gap-8 py-4 bg-primary text-white font-nav text-sm font-bold uppercase tracking-[0.3em];
+  }
+
+  .marquee-content {
+    @apply flex shrink-0 justify-around min-w-full gap-8 animate-scroll;
+  }
+
+  .card-luxury {
+    @apply bg-background-dark relative overflow-hidden group border border-white/5;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}

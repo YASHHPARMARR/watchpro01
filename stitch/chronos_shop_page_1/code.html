@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&amp;family=Josefin+Sans:wght@300;400;500;600&amp;family=Manrope:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c4a5d",
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                    },
+                    fontFamily: {
+                        "display": ["Crimson Pro", "serif"],
+                        "sans": ["Josefin Sans", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .filter-label { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.1em; }
+        .brand-label { font-family: 'Josefin Sans', sans-serif; font-size: 9px; letter-spacing: 0.05em; }
+        .product-name { font-family: 'Crimson Pro', serif; font-size: 17px; }
+        .price-text { font-family: 'Crimson Pro', serif; font-size: 20px; }
+        .sticky-sidebar { height: calc(100vh - 80px); }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-body">
+<div class="relative flex flex-col min-h-screen w-full">
+<!-- Navigation -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white dark:bg-background-dark px-6 md:px-20 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">watch</span>
+<h2 class="font-display text-2xl font-bold tracking-tight text-primary">CHRONOS</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8 font-sans uppercase text-xs tracking-widest">
+<a class="hover:text-primary transition-colors border-b-2 border-primary" href="#">Shop</a>
+<a class="hover:text-primary transition-colors" href="#">Collections</a>
+<a class="hover:text-primary transition-colors" href="#">Heritage</a>
+<a class="hover:text-primary transition-colors" href="#">Concierge</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="bg-primary/5 border-none font-sans text-[10px] tracking-widest pl-10 pr-4 py-2 w-48 focus:ring-1 focus:ring-primary uppercase" placeholder="SEARCH MODELS" type="text"/>
+</div>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">shopping_bag</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">person</span>
+</div>
+</header>
+<div class="flex flex-1 max-w-[1440px] mx-auto w-full px-6 md:px-20 py-10 gap-12">
+<!-- Sticky Left Sidebar -->
+<aside class="hidden lg:flex flex-col w-64 shrink-0 sticky top-28 sticky-sidebar overflow-y-auto pr-4 custom-scrollbar">
+<div class="mb-8">
+<h3 class="filter-label text-slate-400 uppercase mb-6">FILTERS</h3>
+<!-- Category Section -->
+<div class="mb-8">
+<p class="font-sans text-[11px] font-semibold uppercase tracking-widest mb-4">Category</p>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-none border-primary/30 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-sans text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Luxury</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded-none border-primary/30 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-sans text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Sport</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-none border-primary/30 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-sans text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Casual</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-none border-primary/30 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-sans text-xs uppercase tracking-wider group-hover:text-primary transition-colors">Smart</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div class="mb-8">
+<p class="font-sans text-[11px] font-semibold uppercase tracking-widest mb-4">Price Range</p>
+<div class="px-2">
+<input class="w-full h-1 bg-primary/20 appearance-none cursor-pointer accent-primary" max="1000000" min="0" step="10000" type="range"/>
+<div class="flex justify-between mt-3 font-display italic text-sm text-primary">
+<span>₹0</span>
+<span>₹10,00,000</span>
+</div>
+</div>
+</div>
+<!-- Brand -->
+<div class="mb-8">
+<p class="font-sans text-[11px] font-semibold uppercase tracking-widest mb-4">Brand</p>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-none border-primary/30 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-sans text-xs uppercase tracking-wider group-hover:text-primary transition-colors text-slate-700">Rolex</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-none border-primary/30 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-sans text-xs uppercase tracking-wider group-hover:text-primary transition-colors text-slate-700">Omega</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded-none border-primary/30 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-sans text-xs uppercase tracking-wider group-hover:text-primary transition-colors text-slate-700">TAG Heuer</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-none border-primary/30 text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+<span class="font-sans text-xs uppercase tracking-wider group-hover:text-primary transition-colors text-slate-700">Patek Philippe</span>
+</label>
+</div>
+</div>
+<!-- Availability -->
+<div class="mb-8">
+<div class="flex items-center justify-between">
+<p class="font-sans text-[11px] font-semibold uppercase tracking-widest">In Stock Only</p>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Rating -->
+<div class="mb-8">
+<p class="font-sans text-[11px] font-semibold uppercase tracking-widest mb-4">Rating</p>
+<div class="space-y-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary border-primary/30 w-4 h-4" name="rating" type="radio"/>
+<div class="flex text-primary gap-0.5"><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span></div>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="text-primary focus:ring-primary border-primary/30 w-4 h-4" name="rating" type="radio"/>
+<div class="flex text-primary gap-0.5"><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star_outline</span></div>
+</label>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-3 font-sans text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary/90 transition-all">Apply Selection</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1">
+<!-- Top Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-10 border-b border-primary/10 pb-6 gap-4">
+<div>
+<h1 class="font-display text-4xl mb-2">The Collection</h1>
+<p class="font-sans text-[10px] uppercase tracking-widest text-slate-500">Showing 24 elite timepieces</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center border border-primary/20 px-3 py-2 gap-2">
+<span class="font-sans text-[10px] uppercase tracking-widest text-slate-400">Sort by:</span>
+<select class="bg-transparent border-none font-sans text-[10px] uppercase tracking-widest p-0 focus:ring-0 cursor-pointer">
+<option>Price: High to Low</option>
+<option>Newest Arrivals</option>
+<option>Most Popular</option>
+</select>
+</div>
+<div class="flex border border-primary/20">
+<button class="p-2 bg-primary text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+</button>
+<button class="p-2 hover:bg-primary/10 flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined text-xl">list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+<!-- Product Card 1 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-primary/5 flex items-center justify-center relative overflow-hidden p-8">
+<div class="w-full h-full border border-primary/5 absolute inset-4"></div>
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-in-out" data-alt="Luxury gold watch with leather strap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy-Pq1iNZmi5R9dFfsyaQ2en1MpFKNAxBsKyeBMD5iZfMl6SJodvNaCSKcxyNx_YxmEZTWmiWsAQbqf6cI3KO_OugnDbOWOtHElotRfsGlX1kikC3bLXCBn15lsKOFcdmTm4NmCXVRvQn9RXwf80oVLusGfJDzGiDUYeJf7EvJaJJwQ4kmxOgHjQkeAc7IM7Pvwb5TQZrIzLMnrQc8EsR9DcXnq1mpjU2qI2d3IWUj0xIEf8YxehDcNRwfSoaZbQcF-CUB7qN099ry"/>
+<div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 font-sans text-[8px] tracking-[0.2em] uppercase">Limited Edition</div>
+</div>
+<div class="mt-5 space-y-1">
+<p class="brand-label text-primary uppercase">ROLEX</p>
+<h3 class="product-name text-slate-900 group-hover:text-primary transition-colors">Cosmograph Daytona</h3>
+<div class="price-row flex items-center justify-between pt-2">
+<span class="price-text text-slate-800">₹8,45,000</span>
+</div>
+<button class="w-full mt-4 border border-primary text-primary py-3 font-sans text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-primary/5 flex items-center justify-center relative overflow-hidden p-8">
+<div class="w-full h-full border border-primary/5 absolute inset-4"></div>
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-in-out" data-alt="Silver metal luxury watch classic design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG0zIQgX1ofgLl-mnNAI6b038HnN51aNtQtMiZZMCfSmSMiqlXsO0KEGzmFOHtQsCoNV5oDzAD9DPPz0nbUqtGqmEXCbHAhjIzs46BXShi1uQ-oAEWIMn3XxljhkHjmNy4ogywbYoR60LUD7Qu4aodLDINz2qCAgtGb8U8SSlHHv5my2SY7B60F_hw8ge-EbFB6-qA2JCbAj8YqVF5jKJO6YnaaiMjYXggmvg7IVt398xR3RRzX0yvf7vau4TmBt9Z2d9LogvrJ_Gj"/>
+</div>
+<div class="mt-5 space-y-1">
+<p class="brand-label text-primary uppercase">OMEGA</p>
+<h3 class="product-name text-slate-900 group-hover:text-primary transition-colors">Seamaster Diver 300M</h3>
+<div class="price-row flex items-center justify-between pt-2">
+<span class="price-text text-slate-800">₹4,20,000</span>
+</div>
+<button class="w-full mt-4 border border-primary text-primary py-3 font-sans text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-primary/5 flex items-center justify-center relative overflow-hidden p-8">
+<div class="w-full h-full border border-primary/5 absolute inset-4"></div>
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-in-out" data-alt="Black luxury sports watch with chronometer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGEyhBJ-HJizFen1RiWP7Hlv_CHMItVvdVLQHv226_GLUDO6dgt2pUnhSh-Bk4jnroh6KGOHZj-5lKUJUoBe1ENfNOUPRS8TjVYnZv5t_dpsI-XTQoDejLDKWF7p--uIh4-Irf-IdUembL7IlC_H3n39360E6ZSdQuKhd-jlvA-30np_dVsAoh9Q-TE6wKT7pYdFtjlSYdMLyjkGs7Uu28fG1YBihOLwFLfsLZFMnm6mjFOmf3T0hrKEVmKPPW4bqrBk9LqCLHJ6Dx"/>
+</div>
+<div class="mt-5 space-y-1">
+<p class="brand-label text-primary uppercase">TAG HEUER</p>
+<h3 class="product-name text-slate-900 group-hover:text-primary transition-colors">Carrera Chronograph</h3>
+<div class="price-row flex items-center justify-between pt-2">
+<span class="price-text text-slate-800">₹5,12,000</span>
+</div>
+<button class="w-full mt-4 border border-primary text-primary py-3 font-sans text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-primary/5 flex items-center justify-center relative overflow-hidden p-8">
+<div class="w-full h-full border border-primary/5 absolute inset-4"></div>
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-in-out" data-alt="Modern high-end black minimal watch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBGEGbndy7Wmg7hqEGFh5fd9LKfqxY2B8kK6fMvJbXyJb33OA8jJ-Tyy_mlcwhM_VWZEF1wgk-HYQl4GHba5iH2GSepbloVMG6I9xAsqxeNpNk_7ywJEw7xZVL0JJfvu20mCZypHOUyqdFBMWW7p_0H6aSmW9SUyHeA6TqyXPPxGNOwRaSgxZdnT6mi8C7aqT3wyVtvdQglqh3fmFKL7Hh-40Pd39BWDE4czvz6B-OqZWyBE3BGFe_pDHBmZOA1OGQOS5L0GPkucHn"/>
+</div>
+<div class="mt-5 space-y-1">
+<p class="brand-label text-primary uppercase">PATEK PHILIPPE</p>
+<h3 class="product-name text-slate-900 group-hover:text-primary transition-colors">Nautilus 5711/1A</h3>
+<div class="price-row flex items-center justify-between pt-2">
+<span class="price-text text-slate-800">₹9,80,000</span>
+</div>
+<button class="w-full mt-4 border border-primary text-primary py-3 font-sans text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-primary/5 flex items-center justify-center relative overflow-hidden p-8">
+<div class="w-full h-full border border-primary/5 absolute inset-4"></div>
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-in-out" data-alt="Silver watch face close up photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzzCxt8rg3MZUtGEUYC1y4tCh4ks9Lv_e0_djvMIxLNtKm5z5pmOUIEcaKU8NclkH_FqA2aXmOWBeJmSxBb0T_VCHfOW5dm4NjBlw-LAh4xI0ztjn0vcxuR3Hh3VN_SFRK-4xJ5FgB7a85fO6BY8zXf_5pssGZdVWvfp3xtS5RfqaEfQc3joEWt8iIx_KDgNMxqtnWwwMHXv5w9HHbRJPpWdxl7LFhrhakPmUi55ypjhpeN1gn-X87pGECCByc7rmprNNDuULOWAKU"/>
+</div>
+<div class="mt-5 space-y-1">
+<p class="brand-label text-primary uppercase">IWC SCHAFFHAUSEN</p>
+<h3 class="product-name text-slate-900 group-hover:text-primary transition-colors">Portugieser Chronograph</h3>
+<div class="price-row flex items-center justify-between pt-2">
+<span class="price-text text-slate-800">₹6,90,000</span>
+</div>
+<button class="w-full mt-4 border border-primary text-primary py-3 font-sans text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group flex flex-col">
+<div class="aspect-[4/5] bg-primary/5 flex items-center justify-center relative overflow-hidden p-8">
+<div class="w-full h-full border border-primary/5 absolute inset-4"></div>
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-in-out" data-alt="Brown leather strap vintage luxury watch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtJFQE-ifJmSrfpXCVXzabgjvyRZbFqkZ5uL7oAjbgHZPuhv4xcQPxFsqZSBCAiuYbJ99nNEvBIlHca7lpjddLydSEdSJADpMrAXqAVHnJ06Vu_DLDK8aWZ9lvyLg-ghRcQHZYkGMA03yRhRz7Wk91lS8X2B8ooP6fAZgZ92IhA4aGxBzsVFQ4K6-btdQKDbZJqWi_sSIs5_bBjlJ0UrX0KxO5-hvp0Z_UetfMgtTPTSBuDqfK1smfuwYUxsxLZcKbJH7X6W6fUGLM"/>
+</div>
+<div class="mt-5 space-y-1">
+<p class="brand-label text-primary uppercase">CARTIER</p>
+<h3 class="product-name text-slate-900 group-hover:text-primary transition-colors">Tank Must Watch</h3>
+<div class="price-row flex items-center justify-between pt-2">
+<span class="price-text text-slate-800">₹2,85,000</span>
+</div>
+<button class="w-full mt-4 border border-primary text-primary py-3 font-sans text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-primary hover:text-white transition-all">Add to Cart</button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-20 flex justify-center border-t border-primary/10 pt-10">
+<nav class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center font-sans text-xs border border-primary text-primary">01</button>
+<button class="w-10 h-10 flex items-center justify-center font-sans text-xs hover:bg-primary/5">02</button>
+<button class="w-10 h-10 flex items-center justify-center font-sans text-xs hover:bg-primary/5">03</button>
+<span class="px-2">...</span>
+<button class="w-10 h-10 flex items-center justify-center font-sans text-xs hover:bg-primary/5">08</button>
+<button class="w-10 h-10 flex items-center justify-center ml-4">
+<span class="material-symbols-outlined text-primary">arrow_forward_ios</span>
+</button>
+</nav>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-primary/10 py-16 px-6 md:px-20 mt-20">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">watch</span>
+<h2 class="font-display text-xl font-bold tracking-tight text-primary uppercase">CHRONOS</h2>
+</div>
+<p class="font-sans text-xs leading-relaxed text-slate-500 uppercase tracking-widest">Mastering time since 1884. The definitive source for luxury horology.</p>
+</div>
+<div>
+<h4 class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Collections</h4>
+<ul class="space-y-3 font-sans text-xs uppercase tracking-widest text-slate-500">
+<li><a class="hover:text-primary" href="#">New Arrivals</a></li>
+<li><a class="hover:text-primary" href="#">Limited Editions</a></li>
+<li><a class="hover:text-primary" href="#">Pre-Owned</a></li>
+<li><a class="hover:text-primary" href="#">Heritage Pieces</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Experience</h4>
+<ul class="space-y-3 font-sans text-xs uppercase tracking-widest text-slate-500">
+<li><a class="hover:text-primary" href="#">Boutique Finder</a></li>
+<li><a class="hover:text-primary" href="#">Service Center</a></li>
+<li><a class="hover:text-primary" href="#">Authenticity Check</a></li>
+<li><a class="hover:text-primary" href="#">Membership</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-sans text-[10px] font-bold uppercase tracking-[0.2em] mb-6">Newsletter</h4>
+<div class="flex border-b border-primary/30 pb-2">
+<input class="bg-transparent border-none focus:ring-0 p-0 font-sans text-xs w-full uppercase tracking-widest" placeholder="YOUR EMAIL" type="email"/>
+<button class="text-primary material-symbols-outlined">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto pt-16 flex flex-col sm:flex-row justify-between items-center gap-4">
+<p class="font-sans text-[9px] text-slate-400 uppercase tracking-widest">© 2024 CHRONOS LUXURY. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-6 text-slate-400">
+<a class="hover:text-primary font-sans text-[9px] uppercase tracking-widest" href="#">Privacy</a>
+<a class="hover:text-primary font-sans text-[9px] uppercase tracking-widest" href="#">Terms</a>
+<a class="hover:text-primary font-sans text-[9px] uppercase tracking-widest" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

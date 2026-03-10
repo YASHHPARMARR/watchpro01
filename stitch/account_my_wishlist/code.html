@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHRONOS | My Wishlist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c4a5d",
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-primary/10 bg-white dark:bg-background-dark hidden md:flex flex-col sticky top-0 h-screen">
+<div class="p-6 flex items-center gap-3 border-b border-primary/10">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">watch</span>
+</div>
+<div>
+<h1 class="text-primary font-bold text-xl tracking-tight">CHRONOS</h1>
+<p class="text-[10px] uppercase tracking-widest text-primary/60 font-semibold">Luxury Registry</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">auto_awesome_motion</span>
+<span class="text-sm font-medium">Collections</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined material-symbols-filled">favorite</span>
+<span class="text-sm font-semibold">Wishlist</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-sm font-medium">History</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-primary/10">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:bg-primary/5 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<div class="mt-4 flex items-center gap-3 px-3 py-2">
+<div class="size-8 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar smiling businessman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXRO_DOV759cYVIaYfQRzfwaxvi6JgbF7kdSl2-s0zVUFH2G8dcu6beFihmk4g4zI5nDVGdHqWZIE00UlbTsmdFnqnSAAiNn279STVR63E9BhEWHwIvOmqEBf98MPmmF9J2AtsHqvHrqftWoQ1QLqltKzbm-zvS9V8y7pbEl1q5sqhycvvGvVIfewbJEzvQHsmU-FKrt7ycgc4RIwOixbMpmLarOEQtzVbwBoA2wyUPyZE6kCnYkDK9jpkTezOC1bl4x3wLIn2lM2f"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold truncate">Julian Vane</p>
+<p class="text-[10px] text-slate-500">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Header -->
+<header class="h-16 border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md flex items-center justify-between px-8 sticky top-0 z-10">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-background-light dark:bg-primary/5 border-none focus:ring-1 focus:ring-primary rounded-lg text-sm" placeholder="Search saved timepieces..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 size-4 bg-primary text-[10px] text-white flex items-center justify-center rounded-full">3</span>
+</button>
+</div>
+</header>
+<!-- Page Title Area -->
+<div class="px-8 py-10">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-slate-50">My Wishlist</h2>
+<p class="text-slate-500 mt-1">You have <span class="text-primary font-semibold">6 items</span> saved for later.</p>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 text-primary font-semibold text-sm hover:bg-primary/5 rounded-lg transition-all border border-primary/20">
+<span class="material-symbols-outlined text-base">share</span>
+                        Share Wishlist
+                    </button>
+</div>
+<!-- Product Grid (3-column) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group bg-white dark:bg-primary/5 border border-primary/5 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="aspect-square bg-slate-50 dark:bg-background-dark flex items-center justify-center p-12 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-110 transition-transform duration-500" data-alt="Close up shot of a luxury minimal watch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Z4sjKUHmJhycJSUlQVupvtpX6ZK5htev5qEbree0ZAer2YMrQWXkT9cuq8jyigwO3Ye05adSTR1V_km1JcjlGDQLrnEZ2swHDgnPhGmKE0s6gq35jUJFzgRFymT0MUkzLOfLjtq5_jEZmKZD75YErxEArN9m_NZS86ofjQ_Jt0MgrLxlx1zAgUz_72b9NvFGKuHCb5wNgJuw1GGVoWAw8jYFRpV78U_Jk0shfFE3fHxuoK_nIiUOPDKGapwzMB-iUeWfXd6wkULR"/>
+<button class="absolute top-4 right-4 text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined material-symbols-filled">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<span class="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full">Audemars Piguet</span>
+<h3 class="mt-2 text-lg font-bold text-slate-800 dark:text-slate-200">Royal Oak Perpetual</h3>
+<p class="text-primary font-bold mt-1">$98,500.00</p>
+<div class="mt-6 flex flex-col gap-3">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                    MOVE TO CART
+                                </button>
+<button class="w-full text-slate-400 hover:text-red-500 text-xs font-bold py-1 transition-colors uppercase tracking-widest">
+                                    REMOVE FROM SAVED
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white dark:bg-primary/5 border border-primary/5 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="aspect-square bg-slate-50 dark:bg-background-dark flex items-center justify-center p-12 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-110 transition-transform duration-500" data-alt="Classic silver analog watch with black leather strap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqgzqDPUok8WjsCDNPQJzXCGmiVFx_m6xMGYB5bneS4cJfpy-vN6Gnq73Z98OIJzsKR3Zxmx_wiTVoNknpFySPTI-Ad8uLe-_CSxLpr-kGEY7Wi63B6TRej3aYjIBu-lQK1po_KocX21KqM9MT-88qNW90y5z9HAzbOSOz9niTPUdcbYDUwDD8KdgXbc45n3KaERpyNiwkqTdVay4l2qt2WOFn_6d89__0lX6W5YUEewEPFzq4iMQF8RRVI5atn1iv6KJsgmDFa0Cd"/>
+<button class="absolute top-4 right-4 text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined material-symbols-filled">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<span class="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full">Rolex</span>
+<h3 class="mt-2 text-lg font-bold text-slate-800 dark:text-slate-200">Datejust 41 Blue</h3>
+<p class="text-primary font-bold mt-1">$12,400.00</p>
+<div class="mt-6 flex flex-col gap-3">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                    MOVE TO CART
+                                </button>
+<button class="w-full text-slate-400 hover:text-red-500 text-xs font-bold py-1 transition-colors uppercase tracking-widest">
+                                    REMOVE FROM SAVED
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white dark:bg-primary/5 border border-primary/5 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
+<div class="aspect-square bg-slate-50 dark:bg-background-dark flex items-center justify-center p-12 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img class="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-110 transition-transform duration-500" data-alt="Premium gold chronograph watch for men" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTRkMlj9HbQEyVX4q8xM9m4l1Lw4AG89bY4bEvZIrfoTTd87FUFsE3Gr-kmnzDbPpB4CPAqEtP4TcMXjkodmhk9Gm37meiptHkswu2VUGNlnI72u1BzI_uIvD1jB76ewy_miA6vcq2huIC5F9-OU5uv-Fzv6irj8jebXgLEV2P95yKMPE61bwYLO3T8xN2UXIAGrGSuPYbsgpHK04Vq3tzWSQ1OsdY9xLBsXkpTHHnI9sQQOHopsOU48AOCwK6-dQ1zPhqd5V_mD3y"/>
+<button class="absolute top-4 right-4 text-primary hover:scale-110 transition-transform">
+<span class="material-symbols-outlined material-symbols-filled">favorite</span>
+</button>
+</div>
+<div class="p-6">
+<span class="text-[10px] font-black uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full">Patek Philippe</span>
+<h3 class="mt-2 text-lg font-bold text-slate-800 dark:text-slate-200">Nautilus Gold 5711</h3>
+<p class="text-primary font-bold mt-1">$145,000.00</p>
+<div class="mt-6 flex flex-col gap-3">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
+                                    MOVE TO CART
+                                </button>
+<button class="w-full text-slate-400 hover:text-red-500 text-xs font-bold py-1 transition-colors uppercase tracking-widest">
+                                    REMOVE FROM SAVED
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Hidden Demonstration (Conceptual) -->
+<div class="mt-20 border-2 border-dashed border-primary/10 rounded-2xl p-16 flex flex-col items-center justify-center text-center opacity-40 hover:opacity-100 transition-opacity">
+<div class="size-24 bg-primary/5 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-6xl text-primary/30">favorite</span>
+</div>
+<h4 class="text-xl font-bold text-slate-400">Empty Wishlist?</h4>
+<p class="text-slate-400 max-w-sm mt-2">Browse our exclusive collections to save timepieces you love and want to track.</p>
+<button class="mt-8 px-8 py-3 bg-primary/10 text-primary font-bold rounded-lg hover:bg-primary/20 transition-colors">
+                        DISCOVER COLLECTIONS
+                    </button>
+</div>
+</div>
+<footer class="mt-auto p-8 border-t border-primary/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-sm">
+<p>© 2024 CHRONOS Registry. All Rights Reserved.</p>
+<div class="flex items-center gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

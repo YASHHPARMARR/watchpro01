@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHRONOS Admin - Products</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&amp;family=Josefin+Sans:wght@400;500;600&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c4a5d",
+                        "accent": "#dc143c",
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "heading": ["Crimson Pro", "serif"],
+                        "label": ["Josefin Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "0rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 border-r border-primary/20 bg-white dark:bg-background-dark h-full">
+<div class="flex flex-col h-full p-6">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 bg-primary flex items-center justify-center" data-alt="CHRONOS Logo icon">
+<span class="material-symbols-outlined text-white">watch</span>
+</div>
+<div class="flex flex-col">
+<h1 class="font-heading text-xl font-bold leading-none text-primary">CHRONOS</h1>
+<p class="font-label text-xs tracking-widest uppercase opacity-60">Admin Portal</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 font-label text-slate-600 dark:text-slate-400 hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<div class="mt-4 mb-2 px-4 font-label text-[10px] uppercase tracking-widest text-primary/60 font-bold">Inventory</div>
+<a class="flex items-center gap-3 px-4 py-3 font-label bg-primary text-white" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 font-label text-slate-600 dark:text-slate-400 hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined">category</span>
+<span>Categories</span>
+</a>
+<div class="mt-4 mb-2 px-4 font-label text-[10px] uppercase tracking-widest text-primary/60 font-bold">Sales</div>
+<a class="flex items-center gap-3 px-4 py-3 font-label text-slate-600 dark:text-slate-400 hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 font-label text-slate-600 dark:text-slate-400 hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Customers</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-primary/10">
+<a class="flex items-center gap-3 px-4 py-3 font-label text-slate-600 dark:text-slate-400 hover:bg-primary/5" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- Top Bar -->
+<header class="h-20 flex items-center justify-between px-8 bg-white dark:bg-background-dark border-b border-primary/10">
+<div class="flex items-center gap-8">
+<h2 class="font-heading text-2xl font-bold">Products <span class="text-primary/50">(84)</span></h2>
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-background-light dark:bg-white/5 border-none focus:ring-1 focus:ring-primary font-label text-sm" placeholder="Search products, brands, SKUs..." type="text"/>
+</div>
+</div>
+<button class="bg-accent hover:bg-accent/90 text-white px-6 py-2 flex items-center gap-2 font-label font-bold uppercase tracking-wider transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add Product</span>
+</button>
+</header>
+<!-- Filters Row -->
+<div class="px-8 py-6 flex items-center justify-between bg-white/50 dark:bg-white/5 backdrop-blur-sm">
+<div class="flex items-center gap-6">
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] uppercase tracking-widest text-primary font-bold">Filter Category</span>
+<select class="border-primary/20 bg-white dark:bg-background-dark focus:ring-primary font-label text-sm min-w-[200px]">
+<option>All Categories</option>
+<option>Luxury</option>
+<option>Sport</option>
+<option>Dress</option>
+<option>Chronograph</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] uppercase tracking-widest text-primary font-bold">Status View</span>
+<div class="flex border border-primary/20">
+<button class="px-4 py-2 bg-primary text-white font-label text-xs uppercase tracking-widest">Active</button>
+<button class="px-4 py-2 bg-transparent text-slate-500 font-label text-xs uppercase tracking-widest hover:bg-primary/5">Archived</button>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label text-sm text-slate-500">Sort by:</span>
+<button class="flex items-center gap-1 font-label text-sm font-bold border-b border-primary">Recent Addition <span class="material-symbols-outlined text-xs">expand_more</span></button>
+</div>
+</div>
+<!-- Table Section -->
+<div class="flex-1 overflow-auto px-8 pb-8">
+<div class="bg-white dark:bg-background-dark border border-primary/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-primary/10 bg-background-light dark:bg-white/5">
+<th class="p-4 font-label text-[11px] uppercase tracking-widest text-primary/70 font-bold">Thumbnail</th>
+<th class="p-4 font-label text-[11px] uppercase tracking-widest text-primary/70 font-bold">Product Name</th>
+<th class="p-4 font-label text-[11px] uppercase tracking-widest text-primary/70 font-bold">Brand</th>
+<th class="p-4 font-label text-[11px] uppercase tracking-widest text-primary/70 font-bold">Category</th>
+<th class="p-4 font-label text-[11px] uppercase tracking-widest text-primary/70 font-bold">Price</th>
+<th class="p-4 font-label text-[11px] uppercase tracking-widest text-primary/70 font-bold">Stock</th>
+<th class="p-4 font-label text-[11px] uppercase tracking-widest text-primary/70 font-bold text-center">Status</th>
+<th class="p-4 font-label text-[11px] uppercase tracking-widest text-primary/70 font-bold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<!-- Row 1 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="w-[50px] h-[50px] bg-background-light dark:bg-white/10 flex items-center justify-center" data-alt="Watch thumbnail icon">
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">watch</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="font-heading text-lg leading-tight">Royal Oak 15500ST</span>
+<span class="font-label text-[10px] text-slate-400 uppercase tracking-tighter">SKU: AP-RO-15500-BL</span>
+</div>
+</td>
+<td class="p-4 font-label text-sm uppercase tracking-wider font-medium text-slate-600 dark:text-slate-300">Audemars Piguet</td>
+<td class="p-4">
+<span class="font-label text-xs border border-primary/20 px-2 py-1 text-primary">LUXURY</span>
+</td>
+<td class="p-4 font-heading text-base font-bold">$58,200</td>
+<td class="p-4 font-label text-sm">04</td>
+<td class="p-4">
+<div class="flex justify-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-checked:bg-emerald-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+</label>
+</div>
+</td>
+<td class="p-4">
+<div class="flex justify-end gap-3">
+<button class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="text-slate-400 hover:text-accent transition-colors"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="w-[50px] h-[50px] bg-background-light dark:bg-white/10 flex items-center justify-center" data-alt="Watch thumbnail icon">
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">watch</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="font-heading text-lg leading-tight">Submariner "Hulk"</span>
+<span class="font-label text-[10px] text-slate-400 uppercase tracking-tighter">SKU: RX-SUB-116610LV</span>
+</div>
+</td>
+<td class="p-4 font-label text-sm uppercase tracking-wider font-medium text-slate-600 dark:text-slate-300">Rolex</td>
+<td class="p-4">
+<span class="font-label text-xs border border-primary/20 px-2 py-1 text-primary">SPORT</span>
+</td>
+<td class="p-4 font-heading text-base font-bold">$22,500</td>
+<td class="p-4 font-label text-sm">12</td>
+<td class="p-4">
+<div class="flex justify-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-checked:bg-emerald-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+</label>
+</div>
+</td>
+<td class="p-4">
+<div class="flex justify-end gap-3">
+<button class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="text-slate-400 hover:text-accent transition-colors"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="w-[50px] h-[50px] bg-background-light dark:bg-white/10 flex items-center justify-center" data-alt="Watch thumbnail icon">
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">watch</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="font-heading text-lg leading-tight">Speedmaster Moonwatch</span>
+<span class="font-label text-[10px] text-slate-400 uppercase tracking-tighter">SKU: OM-SM-310-30</span>
+</div>
+</td>
+<td class="p-4 font-label text-sm uppercase tracking-wider font-medium text-slate-600 dark:text-slate-300">Omega</td>
+<td class="p-4">
+<span class="font-label text-xs border border-primary/20 px-2 py-1 text-primary">CHRONOGRAPH</span>
+</td>
+<td class="p-4 font-heading text-base font-bold">$6,400</td>
+<td class="p-4 font-label text-sm">08</td>
+<td class="p-4">
+<div class="flex justify-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-checked:bg-emerald-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+</label>
+</div>
+</td>
+<td class="p-4">
+<div class="flex justify-end gap-3">
+<button class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="text-slate-400 hover:text-accent transition-colors"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="p-4">
+<div class="w-[50px] h-[50px] bg-background-light dark:bg-white/10 flex items-center justify-center" data-alt="Watch thumbnail icon">
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors">watch</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="font-heading text-lg leading-tight">Reverso Tribute</span>
+<span class="font-label text-[10px] text-slate-400 uppercase tracking-tighter">SKU: JLC-RV-3978430</span>
+</div>
+</td>
+<td class="p-4 font-label text-sm uppercase tracking-wider font-medium text-slate-600 dark:text-slate-300">Jaeger-LeCoultre</td>
+<td class="p-4">
+<span class="font-label text-xs border border-primary/20 px-2 py-1 text-primary">DRESS</span>
+</td>
+<td class="p-4 font-heading text-base font-bold">$9,200</td>
+<td class="p-4 font-label text-sm">02</td>
+<td class="p-4">
+<div class="flex justify-center">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 dark:bg-slate-700 peer-checked:bg-emerald-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+</label>
+</div>
+</td>
+<td class="p-4">
+<div class="flex justify-end gap-3">
+<button class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-xl">edit</span></button>
+<button class="text-slate-400 hover:text-accent transition-colors"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="mt-6 flex items-center justify-between">
+<p class="font-label text-sm text-slate-500">Showing 1 to 10 of 84 products</p>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 flex items-center justify-center border border-primary/10 hover:bg-primary/5 text-slate-400">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center border border-primary/10 bg-primary text-white font-label text-sm font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center border border-primary/10 hover:bg-primary/5 font-label text-sm">2</button>
+<button class="w-10 h-10 flex items-center justify-center border border-primary/10 hover:bg-primary/5 font-label text-sm">3</button>
+<button class="w-10 h-10 flex items-center justify-center border border-primary/10 hover:bg-primary/5 font-label text-sm">4</button>
+<button class="w-10 h-10 flex items-center justify-center border border-primary/10 hover:bg-primary/5 text-slate-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

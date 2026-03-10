@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Crimson+Pro:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8c4a5d",
+                        "background-light": "#f7f6f7",
+                        "background-dark": "#1c1618",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"],
+                        "serif": ["Crimson Pro", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between border-b border-primary/10 bg-white dark:bg-background-dark px-6 md:px-20 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tighter">CHRONOS</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-sm font-medium hover:text-primary" href="#">New Arrivals</a>
+<a class="text-sm font-medium hover:text-primary border-b-2 border-primary" href="#">Watches</a>
+<a class="text-sm font-medium hover:text-primary" href="#">Accessories</a>
+<a class="text-sm font-medium hover:text-primary" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto w-full px-6 py-8">
+<nav class="flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500 mb-8">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Collections</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-slate-900 dark:text-slate-100 font-semibold">Submariner Date</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+<div class="flex flex-col gap-6">
+<div class="bg-white dark:bg-background-dark rounded-xl overflow-hidden border border-primary/10 p-12 flex items-center justify-center aspect-square">
+<div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Luxury Rolex Submariner Date watch illustration front view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBc-EyfWgBEfP76oJR188VGVO7Bq6Qg2hxTWAQ06XD3OW06xexDxTx2A7pF0km0XfmDCDZWTuFw50r5VavLeeFImmCmwK9bEFB-jfbZT2VoNp8JTKJg2a0JIG49yB0n6k8uJ0HQeFDTVB0Y6p1kdx6REdzprg6TTo_5CroRb6GvgRFsap5oPxTyPXIFQridNo5Hg3vMDsIKjD2GGSLf1Iqcn05caPjvliHHPnsQ396ItKpXCPp0CVefucs1L2zLn1LY5vbYJX0gMyF2");'>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square bg-white dark:bg-background-dark border-2 border-primary rounded-lg p-2 cursor-pointer">
+<div class="w-full h-full bg-center bg-cover rounded" data-alt="Watch detail view front face" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD23U8VW1gml5-7CiofEQUR5uvcajKGjy27vxP-hf6PTsCFadsa12kYWJsd0tFtuO3lyybu-b224c2pcaU_EF109CWfMCSJLDx_EaCjKXNvsWMKuGGSLNsl8pczV7YUN6DSOxMBG1d_DD2TX1Hr4pErnwTu5Xvz1AKUtttDbqK4Q5rwGWBaOCqz5Ypxs5Eo3bww0d5557iZ2ruNoliJtJnEs_n0FBGfyjluE-0MSFU00vjW_sD1MXPPiSjwS8Oo7JxTSh5F0KTAEyTd");'></div>
+</div>
+<div class="aspect-square bg-white dark:bg-background-dark border border-primary/10 rounded-lg p-2 cursor-pointer hover:border-primary/50">
+<div class="w-full h-full bg-center bg-cover rounded" data-alt="Watch detail view side crown" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVuwTYeldy35ZZuLZYgos1TuTc36ZnWbfSUvngUNIImOfUE2Pj7EmDhmju_JJ_YD333KQmJb0QgtB8hTF-87LHxaXL633RfqmqBw0hoy6bwqT_OslDBgwKiKLH4Dv1Hg454KUbKuke2MvhNSwFAwWGu8ECddFzG8wrWn8mFds-dufvtnDSd09EcDSJDICpas3y9VdiYm6MYQ3KTjGBrEOPG-8fu8_KyIEVstYTlP_FBn2yK5Q41YZ9dvzBlDDsddezbXrFcGuT-V92");'></div>
+</div>
+<div class="aspect-square bg-white dark:bg-background-dark border border-primary/10 rounded-lg p-2 cursor-pointer hover:border-primary/50">
+<div class="w-full h-full bg-center bg-cover rounded" data-alt="Watch detail view back plate" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsHn6E0H0mgi_i1t92kDg6rwddP_VALyCKVs5j6ApxeE8OkEJ7TFwjd5PSlja9rRfZMnA0MpLPlN01X3ad5F0vQlIN_uXVCox_8RINqkearb6YHxy_u4ANd2snyFLm4V5ipgPLhlznmlR3osrmWhPfcEMhXnqUjiIFpx1_pwh3krEV0fIFZmFnKCRKw0tUyCpTdMj4cHqktH7Tt_DVCDCUMve03W1v7NLLLyjI3_GOdvYv-MpU1YWK7VelDuIbc4tiJP8R9t5QMfqr");'></div>
+</div>
+<div class="aspect-square bg-white dark:bg-background-dark border border-primary/10 rounded-lg p-2 cursor-pointer hover:border-primary/50">
+<div class="w-full h-full bg-center bg-cover rounded" data-alt="Watch detail view bracelet clasp" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCA_tFOVz2qZ2jEMTxW_99YqfEML7RekIkxXVBzPqV0ZmiO_qvRyjuNUNacaVbeSSLRVsIns6HSE-jWum7DtwMn7YLWi_sW67i--lC0hsVGi2hm864fyXbs4OsRxjdmSwTOu0L9VzxZ4Jtp1QVtS7vyG8X2yzuhYbQTg4EYClFQQCPSHkVec5JPtvjJvabP8lbNe_0vX1Hnro9PpxEWIcynkPvLLjV39yDHXdyvb7C8ksu8bl3WsKUfyNZeAsA-4Cvbs68cMZ_LNSr1");'></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="mb-2">
+<span class="inline-block bg-primary/10 text-primary text-[10px] font-bold tracking-[0.2em] px-3 py-1 rounded uppercase">
+                                Rolex Professional
+                            </span>
+</div>
+<h1 class="font-serif text-5xl font-bold text-slate-900 dark:text-slate-100 mb-4 leading-tight">
+                            Submariner Date
+                        </h1>
+<p class="text-slate-500 mb-6 max-w-md">Oyster, 41 mm, Oystersteel and yellow gold. The reference among divers’ watches.</p>
+<div class="bg-primary/5 border-l-4 border-primary p-6 mb-8">
+<div class="text-sm text-primary font-semibold uppercase tracking-wider mb-1">Current Value</div>
+<div class="text-4xl font-bold text-slate-900 dark:text-slate-100">$15,600.00</div>
+<div class="text-xs text-slate-500 mt-1 italic">*Prices may vary based on market availability</div>
+</div>
+<div class="flex flex-col gap-6 mb-10">
+<div class="flex items-center gap-4">
+<div class="w-32">
+<label class="block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">Quantity</label>
+<div class="flex items-center border border-primary/20 rounded-lg h-12 bg-white dark:bg-background-dark">
+<button class="flex-1 text-primary hover:bg-primary/5 h-full transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<input class="w-10 text-center border-none bg-transparent focus:ring-0 font-bold text-sm" type="text" value="1"/>
+<button class="flex-1 text-primary hover:bg-primary/5 h-full transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+<div class="flex-1 pt-6">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20 uppercase tracking-widest text-sm">
+<span class="material-symbols-outlined text-lg">shopping_bag</span>
+                                        Add to Cart
+                                    </button>
+</div>
+</div>
+<button class="w-full bg-[#25D366] hover:bg-[#20bd5c] text-white font-bold h-12 rounded-lg transition-all flex items-center justify-center gap-2 uppercase tracking-widest text-sm">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+                                Order via WhatsApp
+                            </button>
+</div>
+<div class="border-t border-primary/10 pt-8">
+<div class="flex gap-8 mb-6 border-b border-primary/10">
+<button class="pb-4 text-sm font-bold border-b-2 border-primary text-primary">Description</button>
+<button class="pb-4 text-sm font-bold text-slate-400 hover:text-slate-600">Reviews (12)</button>
+<button class="pb-4 text-sm font-bold text-slate-400 hover:text-slate-600">Shipping</button>
+</div>
+<div class="text-sm text-slate-600 leading-relaxed space-y-4">
+<p>The Rolex Submariner’s robust and functional design swiftly became iconic. With their subtly redesigned Oyster case, distinctive dial with large luminescent hour markers, graduated rotatable Cerachrom bezel and solid link Oyster bracelet, the latest generation Submariner and Submariner Date are in line with the original model launched in 1953.</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>Waterproof to 300 meters (1,000 feet)</li>
+<li>Unidirectional rotatable bezel</li>
+<li>Scratch-resistant sapphire crystal</li>
+<li>Cyclops lens over the date</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-24 border-t border-primary/10 pt-16">
+<h2 class="font-serif text-3xl font-bold mb-8">You May Also Like</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-white dark:bg-background-dark rounded-xl overflow-hidden border border-primary/5 p-8 flex items-center justify-center transition-transform hover:scale-[1.02]">
+<div class="w-full h-full bg-center bg-contain bg-no-repeat" data-alt="Rolex GMT Master watch secondary recommendation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDpGAf5pI_dVkaAg2Liq3u6xmEIfp_l5rHTZgKhkwVGG2FhMcVImCKeM3TdNs_bCPSLkmutSM61LYyeu0nfVmIRNmaOvXn7fYyQtXZfpenJ_7GKu6MqN1qD6p6Dy9WGLyru-XLE4Az1BaOnyYfJXHHd4SRv2-VeKlzHXvrVn-Ml91DjwwNxMKTkUAzWgnfK4ekCtF5nan4DfWztkQm_S1F4kTCz8VAcZpPJZImYOUkuo6G7O6GPSUdE9cok-2AX37mvJ60WvID0KVL9");'></div>
+</div>
+<div class="mt-4">
+<h3 class="font-bold text-sm">GMT-Master II</h3>
+<p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Oystersteel</p>
+<p class="text-primary font-bold mt-2 text-lg">$10,700</p>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-white dark:bg-background-dark rounded-xl overflow-hidden border border-primary/5 p-8 flex items-center justify-center transition-transform hover:scale-[1.02]">
+<div class="w-full h-full bg-center bg-contain bg-no-repeat" data-alt="Rolex Daytona watch secondary recommendation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfSYgNRub6tJZ5Iw0ERSBPWrfvdsUeVfv6wGll5gVgjRfNNRYZJdXR7erTWU5iaY3Ltyvfs8tWlYhBGKM_y6SlR7jhB06pPGNOLQxxWa1VlDRFHZweuDHhoNDZfYgDc8kXccE4f7joekj-ZlBZlPUMzZggto1ZTkc6kbrkKSZyvE0gZI8pZrvJ5vwLoJpykS4vPjltREPv8dK317XH4x2iSZNYB8WKPHUH4clDotcvPNnFph0Qv4BjKXO5rf_ar4xOMuo4W1QtNy1b");'></div>
+</div>
+<div class="mt-4">
+<h3 class="font-bold text-sm">Cosmograph Daytona</h3>
+<p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Platinum</p>
+<p class="text-primary font-bold mt-2 text-lg">$75,000</p>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-white dark:bg-background-dark rounded-xl overflow-hidden border border-primary/5 p-8 flex items-center justify-center transition-transform hover:scale-[1.02]">
+<div class="w-full h-full bg-center bg-contain bg-no-repeat" data-alt="Rolex Explorer watch secondary recommendation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcaFK0xHDpaYBZ_oa3nlS9abvCPSsY7S2jG6dl8DdgPySuh3ElGn6en3DIMFxYK7ujIw6wgih04dwd39XipbjZoY_QJG2YEBoqF2YLkvfSXc99Q9PaWfSQuhsE_ZIq_nG7LC5o9xV2gEkixgjRWO6yiCnRQIa534i-hGaoZ6rsaxR756gnVieqE2EF50taC_p88h9ko7k1rJIk3gfunhxViDuw5ZP4H55P8lPYJCMgvCOzAnhSLZbVjF5TywoC79oMbV_zYZFKOqwK");'></div>
+</div>
+<div class="mt-4">
+<h3 class="font-bold text-sm">Explorer 36</h3>
+<p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Yellow Gold</p>
+<p class="text-primary font-bold mt-2 text-lg">$11,500</p>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-white dark:bg-background-dark rounded-xl overflow-hidden border border-primary/5 p-8 flex items-center justify-center transition-transform hover:scale-[1.02]">
+<div class="w-full h-full bg-center bg-contain bg-no-repeat" data-alt="Rolex Sea Dweller watch secondary recommendation" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCacQcsvJx7wG5pAw2Oymk3IAlCR4OMX50hmI5xCTEPBJfLjR0DHjb_twQbeAyYHOVcF28FE7zsNFC1skTI6_yaBEbY3_tGt6JKztvseOYopBnpqNpZrAnIoGvMU6b4G7b-v4UoycjJGsVMuQCKQGbNjgYT6lGFw5hcKDkFYWlFcNeQU7IoHpqFRPFiqBtDTmbfMVyGkWk0BTypV9SO3r6u2A0KUWVZY22geGKkp_TpEDkoSc7v6tARjdKATKqriNLt-12-35x29JGk");'></div>
+</div>
+<div class="mt-4">
+<h3 class="font-bold text-sm">Sea-Dweller</h3>
+<p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Oystersteel</p>
+<p class="text-primary font-bold mt-2 text-lg">$13,200</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-background-dark border-t border-primary/10 py-12 mt-20">
+<div class="max-w-[1280px] mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-4">Chronos</h4>
+<ul class="text-sm text-slate-500 space-y-2">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Press</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-4">Support</h4>
+<ul class="text-sm text-slate-500 space-y-2">
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Warranty</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-4">Social</h4>
+<ul class="text-sm text-slate-500 space-y-2">
+<li><a class="hover:text-primary transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Twitter</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-xs uppercase tracking-[0.2em] mb-4">Newsletter</h4>
+<div class="flex mt-4">
+<input class="bg-primary/5 border-none rounded-l-lg focus:ring-primary w-full text-sm" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white px-4 rounded-r-lg hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto px-6 border-t border-primary/5 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-slate-400">© 2024 CHRONOS Watches. All rights reserved.</p>
+<div class="flex gap-4">
+<span class="text-xs text-slate-400">Privacy Policy</span>
+<span class="text-xs text-slate-400">Terms of Service</span>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>
