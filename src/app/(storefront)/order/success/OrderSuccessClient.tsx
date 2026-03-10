@@ -16,21 +16,28 @@ export default function OrderSuccessClient() {
     useEffect(() => {
         if (orderId) {
             fetchOrder();
+        } else {
+            setIsLoading(false);
         }
     }, [orderId]);
 
     const fetchOrder = async () => {
         setIsLoading(true);
-        const { data, error } = await supabase
-            .from('orders')
-            .select('*')
-            .eq('id', orderId)
-            .single();
+        try {
+            const { data, error } = await supabase
+                .from('orders')
+                .select('*')
+                .eq('id', orderId)
+                .single();
 
-        if (!error && data) {
-            setOrder(data);
+            if (!error && data) {
+                setOrder(data);
+            }
+        } catch (err) {
+            console.error("Error fetching order:", err);
+        } finally {
+            setIsLoading(false);
         }
-        setIsLoading(false);
     };
 
     if (isLoading) {
@@ -72,7 +79,7 @@ export default function OrderSuccessClient() {
                 >
                     <h1 className="font-display text-4xl md:text-5xl mb-6">Order Placed Successfully!</h1>
                     <p className="text-slate-500 font-body mb-12">
-                        Your luxury timepiece is being prepared for its journey. We&apos;ve sent a confirmation email to {order.shipping_address?.email || "you"} with all the details.
+                        Your luxury timepiece is being prepared for its journey. We&apos;ve sent a confirmation email with all the order details.
                     </p>
 
                     <div className="bg-white border border-primary/10 p-8 mb-12 text-left">
@@ -95,7 +102,7 @@ export default function OrderSuccessClient() {
                             </div>
                             <div className="flex justify-between items-center text-sm">
                                 <span className="text-slate-500 uppercase tracking-wider text-xs font-semibold">Total Amount:</span>
-                                <span className="font-bold text-primary">₹{order.total_amount.toLocaleString()}</span>
+                                <span className="font-bold text-primary">₹{Number(order.total_amount).toLocaleString()}</span>
                             </div>
                         </div>
                     </div>
