@@ -105,7 +105,21 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                         animate={{ opacity: 1, scale: 1 }}
                         className="relative aspect-square bg-background-light border border-primary/10 overflow-hidden group"
                     >
-                        <Image src={product.images[activeImage]} alt={product.name} fill className="object-contain p-12 group-hover:scale-150 transition-transform duration-700 cursor-zoom-in" />
+                        {product.images?.[activeImage] ? (
+                            <Image 
+                                src={product.images[activeImage]} 
+                                alt={product.name} 
+                                fill 
+                                className="object-contain p-12 group-hover:scale-150 transition-transform duration-700 cursor-zoom-in" 
+                            />
+                        ) : product.image ? (
+                            <Image 
+                                src={product.image} 
+                                alt={product.name} 
+                                fill 
+                                className="object-contain p-12 group-hover:scale-150 transition-transform duration-700 cursor-zoom-in" 
+                            />
+                        ) : null}
                         <div className="absolute top-6 right-6">
                             <button
                                 onClick={() => toggleWishlist(product)}
@@ -123,7 +137,9 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                                 onClick={() => setActiveImage(i)}
                                 className={`relative w-24 aspect-square bg-background-light border-2 transition-all ${activeImage === i ? "border-gold shadow-lg" : "border-transparent opacity-60 hover:opacity-100"}`}
                             >
-                                <Image src={img} alt={`Thumb ${i}`} fill className="object-contain p-2" />
+                                {img && (
+                                    <Image src={img} alt={`Thumb ${i}`} fill className="object-contain p-2" />
+                                )}
                             </button>
                         ))}
                     </div>

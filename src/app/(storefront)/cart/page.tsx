@@ -106,7 +106,9 @@ export default function Cart() {
                                     className="flex gap-6 pb-8 border-b border-primary/10 group"
                                 >
                                     <div className="relative w-32 aspect-square bg-background-light overflow-hidden shrink-0">
-                                        <Image src={item.image} alt={item.name} fill className="object-contain p-4 group-hover:scale-110 transition-transform duration-500" />
+                                        {item.image && (
+                                            <Image src={item.image} alt={item.name} fill className="object-contain p-4 group-hover:scale-110 transition-transform duration-500" />
+                                        )}
                                     </div>
 
                                     <div className="flex-1 flex flex-col justify-between">

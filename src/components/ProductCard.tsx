@@ -55,12 +55,14 @@ export default function ProductCard({ id, name, brand, price, originalPrice, ima
             className="group relative bg-[#141414] border border-white/5 overflow-hidden hover:border-gold/50 transition-all duration-500"
         >
             <Link href={productUrl} className="relative aspect-[4/5] overflow-hidden block">
-                <Image
-                    src={image}
-                    alt={name}
-                    fill
-                    className="object-contain p-8 group-hover:scale-110 transition-transform duration-700"
-                />
+                {image && (
+                    <Image
+                        src={image}
+                        alt={name}
+                        fill
+                        className="object-contain p-8 group-hover:scale-110 transition-transform duration-700"
+                    />
+                )}
 
                 <div className="absolute top-4 right-4 z-10">
                     <button

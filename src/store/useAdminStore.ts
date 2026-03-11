@@ -34,13 +34,23 @@ export interface AdminCoupon {
     created_at: string;
 }
 
+export interface AdminUser {
+    id: string;
+    full_name: string;
+    avatar_url: string;
+    role: string;
+    created_at: string;
+}
+
 interface AdminStoreState {
     products: AdminProduct[];
     orders: AdminOrder[];
     coupons: AdminCoupon[];
+    users: AdminUser[];
     isLoading: boolean;
     fetchProducts: () => Promise<void>;
     fetchOrders: () => Promise<void>;
+    fetchUsers: () => Promise<void>;
     fetchCoupons: () => Promise<void>;
     addProduct: (product: Omit<AdminProduct, 'id'>) => Promise<void>;
     updateProduct: (id: string, updatedProduct: Partial<AdminProduct>) => Promise<void>;
@@ -49,6 +59,7 @@ interface AdminStoreState {
     deleteCoupon: (id: string) => Promise<void>;
     updateOrderStatus: (id: string, status: AdminOrder['status'], userId?: string) => Promise<void>;
     deleteOrder: (id: string) => Promise<void>;
+    deleteUser: (id: string) => Promise<void>;
     uploadImage: (file: File) => Promise<string | null>;
 }
 
@@ -56,56 +67,102 @@ export const useAdminStore = create<AdminStoreState>((set, get) => ({
     products: [],
     orders: [],
     coupons: [],
+    users: [],
     isLoading: false,
+
+    fetchUsers: async () => {
+        set({ isLoading: true });
+        try {
+            const { data, error } = await supabase
+                .from('profiles')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) throw error;
+            if (data) {
+                set({ users: data });
+            }
+        } catch (err) {
+            console.error('Error fetching users:', err);
+        } finally {
+            set({ isLoading: false });
+        }
+    },
+
+    deleteUser: async (id) => {
+        const { error } = await supabase
+            .from('profiles')
+            .delete()
+            .eq('id', id);
+
+        if (!error) {
+            set((state) => ({
+                users: state.users.filter(u => u.id !== id)
+            }));
+        }
+    },
 
     fetchProducts: async () => {
         set({ isLoading: true });
-        const { data, error } = await supabase
-            .from('products')
-            .select('*')
-            .order('created_at', { ascending: false });
+        try {
+            const { data, error } = await supabase
+                .from('products')
+                .select('*')
+                .order('created_at', { ascending: false });
 
-        if (!error && data) {
-            const formatted = data.map(p => ({
-                id: p.id,
-                name: p.name,
-                brand: p.brand,
-                price: Number(p.price),
-                stock: p.stock,
-                category: p.category,
-                status: p.status,
-                image: p.main_image
-            }));
-            set({ products: formatted });
+            if (error) throw error;
+            if (data) {
+                const formatted = data.map(p => ({
+                    id: p.id,
+                    name: p.name,
+                    brand: p.brand,
+                    price: Number(p.price),
+                    stock: p.stock,
+                    category: p.category,
+                    status: p.status,
+                    image: p.main_image
+                }));
+                set({ products: formatted });
+            }
+        } catch (err) {
+            console.error('Error fetching products:', err);
+        } finally {
+            set({ isLoading: false });
         }
-        set({ isLoading: false });
     },
 
     fetchOrders: async () => {
         set({ isLoading: true });
-        const { data, error } = await supabase
-            .from('orders')
-            .select(`
-                *,
-                profiles ( full_name )
-            `)
-            .order('created_at', { ascending: false });
+        try {
+            const { data, error } = await supabase
+                .from('orders')
+                .select(`
+                    *,
+                    profiles:user_id ( full_name )
+                `)
+                .order('created_at', { ascending: false });
 
-        if (!error && data) {
-            const formatted = data.map(o => ({
-                id: o.id,
-                display_id: o.display_id,
-                customer: o.profiles?.full_name || 'Guest User',
-                date: new Date(o.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
-                amount: Number(o.total_amount),
-                status: o.status,
-                payment: o.payment_status,
-                method: o.payment_method || 'Unknown',
-                user_id: o.user_id
-            }));
-            set({ orders: formatted });
+            if (error) throw error;
+
+            if (data) {
+                const formatted = data.map(o => ({
+                    id: o.id,
+                    display_id: o.display_id,
+                    customer: (o.profiles as any)?.full_name || 'Guest User',
+                    date: new Date(o.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
+                    amount: Number(o.total_amount),
+                    status: o.status,
+                    payment: o.payment_status,
+                    method: o.payment_method || 'Unknown',
+                    user_id: o.user_id
+                }));
+                set({ orders: formatted });
+            }
+        } catch (err) {
+            console.error('Error fetching orders:', err);
+        } finally {
+            set({ isLoading: false });
         }
-        set({ isLoading: false });
     },
 
     addProduct: async (product) => {

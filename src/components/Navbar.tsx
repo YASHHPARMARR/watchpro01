@@ -12,6 +12,7 @@ export default function Navbar() {
     const { user, profile, initializeAuth, signOut } = useAuthStore();
     const [authMenuOpen, setAuthMenuOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
         initializeAuth();
@@ -27,6 +28,12 @@ export default function Navbar() {
         ["rgba(247, 246, 247, 0)", "rgba(247, 246, 247, 0.8)"]
     );
     const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.1]);
+
+    const handleSearch = (e: React.KeyboardEvent) => {
+        if (e.key === "Enter" && searchQuery) {
+            window.location.href = `/shop?search=${encodeURIComponent(searchQuery)}`;
+        }
+    };
 
     return (
         <motion.header
@@ -48,7 +55,7 @@ export default function Navbar() {
                         <Link href="/shop" className="hover:text-primary transition-colors">Collection</Link>
                         <Link href="/shop?category=featured" className="hover:text-primary transition-colors">Categories</Link>
                         <Link href="/shop?sale=true" className="hover:text-primary transition-colors">Flash Sale</Link>
-                        <Link href="/" className="hover:text-primary transition-colors">About</Link>
+                        <Link href="/about" className="hover:text-primary transition-colors">About</Link>
                     </nav>
                 </div>
 
@@ -58,6 +65,9 @@ export default function Navbar() {
                         <input
                             type="text"
                             placeholder="Search timepiece..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onKeyDown={handleSearch}
                             className="bg-transparent border-none focus:ring-0 text-sm w-40 font-body placeholder:text-primary/40"
                         />
                     </div>
@@ -159,6 +169,7 @@ export default function Navbar() {
                                 <Link href="/shop" onClick={() => setMobileMenuOpen(false)} className="hover:text-primary transition-colors hover:translate-x-2 transition-transform">Collection</Link>
                                 <Link href="/shop?category=featured" onClick={() => setMobileMenuOpen(false)} className="hover:text-primary transition-colors hover:translate-x-2 transition-transform">Categories</Link>
                                 <Link href="/shop?sale=true" onClick={() => setMobileMenuOpen(false)} className="hover:text-primary transition-colors hover:translate-x-2 transition-transform">Flash Sale</Link>
+                                <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="hover:text-primary transition-colors hover:translate-x-2 transition-transform">About</Link>
                                 <Link href="/account" onClick={() => setMobileMenuOpen(false)} className="hover:text-primary transition-colors hover:translate-x-2 transition-transform">My Account</Link>
                                 {profile?.role === 'admin' && (
                                     <Link href="/admin" onClick={() => setMobileMenuOpen(false)} className="hover:text-primary transition-colors hover:translate-x-2 transition-transform text-gold">Admin Panel</Link>

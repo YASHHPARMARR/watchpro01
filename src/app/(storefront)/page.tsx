@@ -15,24 +15,29 @@ export default function Home() {
     useEffect(() => {
         async function fetchFeatured() {
             setLoading(true);
-            const { data, error } = await supabase
-                .from('products')
-                .select('*')
-                .eq('status', 'Active')
-                .limit(4);
+            try {
+                const { data, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .eq('status', 'Active')
+                    .limit(4);
 
-            if (data && !error) {
-                const formatted = data.map(p => ({
-                    id: p.id,
-                    name: p.name,
-                    brand: p.brand,
-                    price: Number(p.price),
-                    image: p.main_image,
-                    category: p.category
-                }));
-                setFeaturedProducts(formatted);
+                if (data && !error) {
+                    const formatted = data.map(p => ({
+                        id: p.id,
+                        name: p.name,
+                        brand: p.brand,
+                        price: Number(p.price),
+                        image: p.main_image,
+                        category: p.category
+                    }));
+                    setFeaturedProducts(formatted);
+                }
+            } catch (err) {
+                console.error("Error fetching featured products:", err);
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
         }
         fetchFeatured();
     }, []);
@@ -65,7 +70,7 @@ export default function Home() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="font-display text-5xl md:text-8xl text-white mb-8 leading-tight"
+                        className="font-display text-4xl sm:text-5xl md:text-8xl text-white mb-8 leading-[1.1]"
                     >
                         Time Is Your Most <br /> <span className="italic text-gold">Precious</span> Asset
                     </motion.h1>
@@ -118,7 +123,7 @@ export default function Home() {
                 >
                     Curated Collections
                 </motion.h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                     {[
                         { name: "Luxury", label: "Heritage", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBQdbI9FoR_1DztNpUDaTFBrr739SbxTz7VE6a8nZYMbPpH5I-iJMStzhursluoD1y6Snf72aFctEq-gcbiU5ovLqN9cYzafpNO-ECIzZSX9xkqw6C5imJ9fkOWP5ka1juNCgaECTjLpkhLkfNrXGXNq_KlBhUNs3p5_he_i-4VbCQpIqbCuskGtBkh8XUd1BWUwvpKePVrsPY1HGYnC-JTVTHMZFm0WkogrrTohRFAF6Z5wxgooaeDDe-iDIJcl5ugiBiUhjxWGgb0" },
                         { name: "Sport", label: "Performance", img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJwGEo4kpzyeOY-fSUh8D317a8-SKy5k6s96Q-RdM6c7vFXFR5oLofWj5ybiw7hPNV5Tl1QDI_F3IeC9hi1IADw1ASP6RcUVnsVPWzcmQz6Ej4F82QxARJEa5XJc-x1_4jweWMBptPY2yFYU9FSW-w6rCkTGYaDq9kgJPoO3y5Y-9vzbR-vMzllDV0FXGOpkAKlxdM4fV1YyYqabu66yVsBdaoaoSlstQuTSOKO07IzKFbJdWETm_JqABhLIH8NoxK55qH4sMMPMMB" },
@@ -128,14 +133,14 @@ export default function Home() {
                         <Link key={i} href={`/shop?category=${cat.name.toLowerCase()}`}>
                             <motion.div
                                 whileHover={{ scale: 1.02 }}
-                                className="group relative h-[400px] overflow-hidden bg-background-dark border border-white/5"
+                                className="group relative h-[250px] md:h-[400px] overflow-hidden bg-background-dark border border-white/5"
                             >
                                 <Image src={cat.img} alt={cat.name} fill className="object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent" />
-                                <div className="absolute bottom-8 left-8 z-10">
-                                    <p className="font-nav text-xs uppercase tracking-widest text-primary mb-2">{cat.label}</p>
-                                    <h4 className="font-display text-2xl text-white mb-4">{cat.name}</h4>
-                                    <div className="w-10 h-0.5 bg-gold group-hover:w-full transition-all duration-500" />
+                                <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-10">
+                                    <p className="font-nav text-[8px] md:text-xs uppercase tracking-widest text-primary mb-1 md:mb-2">{cat.label}</p>
+                                    <h4 className="font-display text-lg md:text-2xl text-white mb-2 md:mb-4">{cat.name}</h4>
+                                    <div className="w-8 h-0.5 bg-gold group-hover:w-full transition-all duration-500" />
                                 </div>
                             </motion.div>
                         </Link>

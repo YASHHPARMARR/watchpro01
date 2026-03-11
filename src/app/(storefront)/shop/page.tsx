@@ -1,29 +1,76 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Filter, X, ChevronDown, Grid, List as ListIcon } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import { supabase } from "@/lib/supabase";
 
-export default function Shop() {
+function ShopContent() {
+    const searchParams = useSearchParams();
+    const initialCategory = searchParams.get("category");
+    const initialSearch = searchParams.get("search");
+
     const [products, setProducts] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
-    const [activeCategory, setActiveCategory] = useState("All");
+    const [activeCategory, setActiveCategory] = useState(initialCategory ? (initialCategory.charAt(0).toUpperCase() + initialCategory.slice(1)) : "All");
     const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
     const [priceRange, setPriceRange] = useState(500000);
     const [sortBy, setSortBy] = useState("featured");
+    const [searchQuery, setSearchQuery] = useState(initialSearch || "");
 
     const categories = ["All", "Luxury", "Sport", "Casual", "Smart"];
 
     useEffect(() => {
-        // ... (fetch logic remains same)
+        if (initialSearch) setSearchQuery(initialSearch);
+        if (initialCategory) setActiveCategory(initialCategory.charAt(0).toUpperCase() + initialCategory.slice(1));
+    }, [initialSearch, initialCategory]);
+
+    useEffect(() => {
+        async function fetchProducts() {
+            setLoading(true);
+            try {
+                const { data, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .eq('status', 'Active')
+                    .order('created_at', { ascending: false });
+
+                if (data && !error) {
+                    const formatted = data.map(p => ({
+                        id: p.id,
+                        name: p.name,
+                        brand: p.brand,
+                        price: Number(p.price),
+                        image: p.main_image,
+                        category: p.category,
+                        stock: p.stock
+                    }));
+                    setProducts(formatted);
+                }
+            } catch (err) {
+                console.error("Error fetching products:", err);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchProducts();
     }, []);
 
     let filteredProducts = activeCategory === "All"
         ? products
         : products.filter(p => p.category === activeCategory);
+
+    // Apply Search Filter
+    if (searchQuery) {
+        filteredProducts = filteredProducts.filter(p =>
+            p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.category.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    }
 
     // Apply Price Filter
     filteredProducts = filteredProducts.filter(p => p.price <= priceRange);
@@ -43,6 +90,18 @@ export default function Shop() {
                 {/* Desktop Sidebar Filters */}
                 <aside className="hidden lg:block w-64 shrink-0">
                     <h2 className="font-display text-2xl mb-8">Filters</h2>
+
+                    {/* Search Field */}
+                    <div className="mb-10">
+                        <h4 className="font-nav text-xs uppercase tracking-widest text-slate-500 mb-4">Search</h4>
+                        <input
+                            type="text"
+                            placeholder="Find a timepiece..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full bg-slate-50 border border-slate-200 px-4 py-2 text-sm focus:ring-0 focus:border-gold outline-none"
+                        />
+                    </div>
 
                     <div className="mb-10">
                         <h4 className="font-nav text-xs uppercase tracking-widest text-slate-500 mb-4">Categories</h4>
@@ -198,12 +257,22 @@ export default function Shop() {
                                     ))}
                                 </div>
                             </div>
-
-                            {/* Add more mobile filters as needed */}
                         </motion.div>
                     </>
                 )}
             </AnimatePresence>
         </div>
+    );
+}
+
+export default function Shop() {
+    return (
+        <Suspense fallback={
+            <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto text-center">
+                <h3 className="font-display text-2xl text-slate-400 animate-pulse">Initializing Collection...</h3>
+            </div>
+        }>
+            <ShopContent />
+        </Suspense>
     );
 }
